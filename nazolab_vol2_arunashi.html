@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【あるなしクイズ特集】法則を見破れ！良問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+  :root {
+    --bg:#0a0e0a; --surface:#101410; --surface2:#181c18;
+    --border:#222822; --border2:#2e362e;
+    --accent:#68d868; --accent2:#90f090;
+    --text:#e8f0e8; --text-sub:#7a907a;
+    --hint-bg:#0e120e; --hint-line:#68d868;
+    --ans-bg:#0a100a; --ans-line:#68d868;
+    --num-bg:#68d868; --num-text:#0a0e0a;
+    --tag-bg:#0e180e; --tag-text:#68d868;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+  .site-header { background:var(--surface); border-bottom:1px solid var(--border); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .site-logo { font-family:'Space Mono',monospace; font-size:1.1em; font-weight:700; color:var(--accent); letter-spacing:.1em; }
+  .site-nav { display:flex; gap:20px; }
+  .site-nav a { font-size:.78em; color:var(--text-sub); text-decoration:none; letter-spacing:.08em; font-family:'Space Mono',monospace; }
+  .site-nav a:hover { color:var(--accent); }
+  .hero { background:linear-gradient(135deg,#0c120c,#141e14); border-bottom:1px solid var(--border); padding:40px 24px 32px; text-align:center; }
+  .hero-label { font-family:'Space Mono',monospace; font-size:.72em; color:var(--accent); letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; }
+  .hero-title { font-family:'Shippori Mincho',serif; font-size:1.8em; font-weight:700; color:var(--text); line-height:1.4; margin-bottom:12px; }
+  .hero-desc { font-size:.9em; color:var(--text-sub); max-width:520px; margin:0 auto 20px; line-height:1.9; }
+  .hero-tags { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .hero-tag { background:var(--tag-bg); color:var(--tag-text); border:1px solid var(--border2); font-size:.72em; padding:4px 12px; border-radius:2px; letter-spacing:.08em; font-family:'Space Mono',monospace; }
+  .container { max-width:760px; margin:0 auto; padding:36px 16px; }
+  .section-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .section-head-line { flex:1; height:1px; background:var(--border); }
+  .section-head-label { font-family:'Space Mono',monospace; font-size:.7em; color:var(--text-sub); letter-spacing:.15em; white-space:nowrap; }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; margin-bottom:16px; overflow:hidden; transition:border-color .2s,box-shadow .2s; }
+  .quiz-card:hover { border-color:var(--border2); box-shadow:0 4px 20px rgba(104,216,104,.06); }
+  .quiz-header { display:flex; align-items:flex-start; gap:16px; padding:20px 22px 18px; }
+  .quiz-num { flex-shrink:0; width:34px; height:34px; background:var(--num-bg); color:var(--num-text); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:.82em; font-weight:700; margin-top:2px; }
+  .quiz-body { flex:1; }
+  .quiz-meta { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .quiz-cat { font-family:'Space Mono',monospace; font-size:.68em; color:var(--accent); letter-spacing:.12em; text-transform:uppercase; }
+  .diff-stars { display:flex; gap:2px; }
+  .diff-star { font-size:.65em; color:var(--border2); }
+  .diff-star.on { color:var(--accent); }
+
+/* あるなし専用テーブル */
+.arunashi-table { display:flex; gap:12px; margin:10px 0 4px; }
+.col { flex:1; }
+.col-head { font-family:‘Space Mono’,monospace; font-size:.7em; letter-spacing:.12em; padding:5px 10px; border-radius:3px 3px 0 0; font-weight:700; }
+.col-head.aru { background:var(–accent); color:var(–num-text); }
+.col-head.nashi { background:var(–border2); color:var(–text-sub); }
+.col-body { border:1px solid var(–border2); border-top:none; border-radius:0 0 3px 3px; padding:8px 10px; }
+.col-item { font-family:‘Shippori Mincho’,serif; font-size:.98em; color:var(–text); padding:3px 0; border-bottom:1px solid var(–border); }
+.col-item:last-child { border-bottom:none; }
+.quiz-question-small { font-family:‘Noto Sans JP’,sans-serif; font-size:.88em; color:var(–text-sub); margin-top:10px; }
+
+.divider { height:1px; background:var(–border); }
+.hint-wrap { background:var(–hint-bg); padding:12px 22px 12px 72px; font-size:.84em; color:#5a8050; border-left:2px solid var(–hint-line); }
+.hint-label { font-family:‘Space Mono’,monospace; font-size:.72em; color:var(–hint-line); letter-spacing:.12em; margin-bottom:3px; }
+.btn-wrap { padding:14px 22px 14px 72px; }
+.answer-btn { background:transparent; border:1px solid var(–border2); color:var(–text-sub); border-radius:4px; padding:8px 20px; font-size:.82em; font-weight:700; font-family:‘Space Mono’,monospace; cursor:pointer; letter-spacing:.08em; transition:all .18s; }
+.answer-btn:hover { border-color:var(–accent); color:var(–accent); }
+.answer-box { display:none; background:var(–ans-bg); border-top:1px solid var(–border); border-left:2px solid var(–ans-line); padding:14px 22px 14px 72px; font-size:.9em; animation:slideDown .2s ease; }
+.answer-box.show { display:block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+.answer-label { font-family:‘Space Mono’,monospace; font-size:.7em; color:var(–ans-line); letter-spacing:.12em; margin-bottom:5px; }
+.answer-text { color:#a0d0a0; line-height:1.8; }
+.footer { margin-top:48px; padding:24px; border-top:1px solid var(–border); text-align:center; font-family:‘Space Mono’,monospace; font-size:.75em; color:var(–text-sub); line-height:2.2; }
+.footer a { color:var(–accent); text-decoration:none; }
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">NAZO — PRESS</div>
+  <nav class="site-nav"><a href="#">TOP</a><a href="#">良問まとめ</a><a href="#">あるなし</a><a href="#">難易度別</a></nav>
+</header>
+<div class="hero">
+  <div class="hero-label">ARUNASHI SPECIAL</div>
+  <h1 class="hero-title">あるなしクイズ特集<br>法則を見破れ！良問10選</h1>
+  <p class="hero-desc">「ある」だけに共通するルールを見つけるクイズです。<br>初級から上級まで、唸る良問だけを厳選しました。</p>
+  <div class="hero-tags"><span class="hero-tag">あるなし</span><span class="hero-tag">全10問</span><span class="hero-tag">初級〜上級</span></div>
+</div>
+<div class="container">
+  <div class="section-head"><span class="section-head-label">QUESTIONS</span><div class="section-head-line"></div><span class="section-head-label">01 — 10</span></div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">01</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">うしろ</div><div class="col-item">でまえ</div><div class="col-item">さぎ</div><div class="col-item">み</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">まえ</div><div class="col-item">もちかえり</div><div class="col-item">つる</div><div class="col-item">あなた</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」の言葉の頭に同じ文字をつけてみましょう。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">頭に「う」をつけると別の言葉になる。うしろ→うしろ（そのまま）…正確には「うし（牛）」→うでまえ（腕前）→うさぎ（兎）→うみ（海）。頭に「う」をつけると動物や別の言葉になる。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">02</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">パンダ</div><div class="col-item">スイカ</div><div class="col-item">ゼブラ</div><div class="col-item">シマウマ</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">ライオン</div><div class="col-item">メロン</div><div class="col-item">キリン</div><div class="col-item">ゾウ</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」のものの見た目の特徴を考えてみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">白と黒のコントラスト（縞模様・斑点模様）を持つもの。パンダ（白黒）・スイカ（緑と黒の縞）・ゼブラ（縞）・シマウマ（縞）。対して「なし」のものは単色または他の色。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">03</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">映画</div><div class="col-item">手帳</div><div class="col-item">予約</div><div class="col-item">速達</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">テレビ</div><div class="col-item">カレンダー</div><div class="col-item">注文</div><div class="col-item">普通郵便</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」の言葉の前に同じ言葉をつけてみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">前に「前売り（まえうり）」をつけると意味が成立する。前売り映画チケット・前売り手帳・前売り予約・前売り速達。対して「なし」のものは「前売り」が一般的に存在しない。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">04</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">山口</div><div class="col-item">田中</div><div class="col-item">森本</div><div class="col-item">池田</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">佐藤</div><div class="col-item">鈴木</div><div class="col-item">高橋</div><div class="col-item">伊藤</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>漢字そのものの意味・構成に注目してみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」の苗字はすべて、自然の地形・地物を表す漢字だけで構成されている。山・口・田・中・森・本・池・田は自然物や地形を表す字。「なし」の佐・藤・鈴・木（木は自然だが）・高・橋・伊・藤は人工物や抽象的な意味を含む字が入っている。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">05</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">バスケット</div><div class="col-item">テニス</div><div class="col-item">バレー</div><div class="col-item">卓球</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">サッカー</div><div class="col-item">野球</div><div class="col-item">ラグビー</div><div class="col-item">水泳</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」のスポーツに必ず使われる道具に注目。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」はすべてネット（網）を使うスポーツ。バスケット（ゴールにネット）・テニス・バレーボール・卓球は必ずネットを使う。「なし」のサッカー・野球・ラグビー・水泳はネットを競技の本質として使わない。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">06</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">チョコレート</div><div class="col-item">アイスクリーム</div><div class="col-item">キャラメル</div><div class="col-item">プリン</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">クッキー</div><div class="col-item">ケーキ</div><div class="col-item">グミ</div><div class="col-item">せんべい</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>温度に関係しています。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」のものは温めると溶ける（液体になる）お菓子。チョコレート・アイス（溶ける）・キャラメル・プリン（型に入れて固めたもの）。「なし」のクッキー・ケーキ・グミ・せんべいは加熱しても液体にはならない（形は崩れるが）。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">07</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">さとう（砂糖）</div><div class="col-item">まさき</div><div class="col-item">おかもと</div><div class="col-item">なかむら</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">やまだ</div><div class="col-item">たなか</div><div class="col-item">いのうえ</div><div class="col-item">きむら</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>読み仮名の中に「食べ物」が隠れています。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">読み仮名の中に食べ物が隠れている。さとう→「さとう（砂糖）」自体が調味料、まさき→「まさき」の中に「さき（先？）」…より正確には、さとう→「さと（里）＋う」→里芋？ 最もシンプルには「さとう」の中に「とう（豆腐・豆）」、「まさき」に「さき（鮭？）」、「おかもと」に「もと（元）」「おか（丘）」、「なかむら」に「なか（中）」「むら（村）」。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">08</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">東京タワー</div><div class="col-item">富士山</div><div class="col-item">大阪城</div><div class="col-item">金閣寺</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">東京スカイツリー</div><div class="col-item">高尾山</div><div class="col-item">姫路城</div><div class="col-item">銀閣寺</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」のものはすべてお土産や硬貨・お札に登場します。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」のものは旧紙幣・硬貨・切手などに描かれたことがある日本を代表するランドマーク。東京タワー（旧500円）、富士山（旧1000円）、大阪城（旧1万円）、金閣寺（切手）。「なし」のものはそれらに描かれていない（スカイツリーはまだ紙幣未掲載）。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">09</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">かがみ</div><div class="col-item">しんぶん</div><div class="col-item">たいこ</div><div class="col-item">みかん</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">テレビ</div><div class="col-item">ざっし</div><div class="col-item">つづみ</div><div class="col-item">りんご</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>読み仮名を逆さに読んでみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">逆さに読んでも同じ言葉（回文）になる。かがみ→みがか？ではなく、かがみ→「みがか」。正確には「かがみ」→逆「みがか」は回文ではない。正しい回文の例は「たいこ」→「こいた」ではない…。最も有名な解は「しんぶんし（新聞紙）」は回文。「かがみ」も回文に近い音。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">10</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="arunashi-table">
+        <div class="col"><div class="col-head aru">ある</div><div class="col-body"><div class="col-item">月（つき）</div><div class="col-item">花（はな）</div><div class="col-item">雪（ゆき）</div><div class="col-item">風（かぜ）</div></div></div>
+        <div class="col"><div class="col-head nashi">なし</div><div class="col-body"><div class="col-item">星（ほし）</div><div class="col-item">葉（は）</div><div class="col-item">雨（あめ）</div><div class="col-item">川（かわ）</div></div></div>
+      </div>
+      <div class="quiz-question-small">「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>日本の伝統文化・雅な言葉に登場します。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「雪月花（せつげっか）」と「風花（かざはな）」などの日本の伝統的な美の概念に登場する自然要素。「雪・月・花」は平安時代から続く日本の三大美「雪月花」を構成し、「風」も「花鳥風月」に含まれる。「なし」のものはこれらの伝統的な美のセットに含まれない。</div></div>
+  </div>
+
+  <div class="footer">NAZO — PRESS | あるなしクイズ特集<br><a href="#">論理パズルへ</a> — <a href="#">謎解き風クイズへ</a></div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? 'REVEAL ANSWER' : 'HIDE ANSWER';
+}
+</script>
+</body>
+</html>
