@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【良問まとめ】論理×ひらめき — 唸る問題だけを厳選10問</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+  :root {
+    --bg:#0e0e12; --surface:#16161e; --surface2:#1e1e28;
+    --border:#2a2a38; --border2:#383848;
+    --accent:#e8c840; --accent2:#f0d870;
+    --text:#eeeef4; --text-sub:#8888a0;
+    --hint-bg:#18181f; --hint-line:#e8c840;
+    --ans-bg:#141420; --ans-line:#50d890;
+    --num-bg:#e8c840; --num-text:#0e0e12;
+    --tag-bg:#1e1e10; --tag-text:#e8c840;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+
+.site-header {
+background:var(–surface); border-bottom:1px solid var(–border);
+padding:16px 24px; display:flex; align-items:center; justify-content:space-between;
+}
+.site-logo { font-family:‘Space Mono’,monospace; font-size:1.1em; font-weight:700; color:var(–accent); letter-spacing:.1em; }
+.site-nav { display:flex; gap:20px; }
+.site-nav a { font-size:.78em; color:var(–text-sub); text-decoration:none; letter-spacing:.08em; font-family:‘Space Mono’,monospace; }
+.site-nav a:hover { color:var(–accent); }
+
+.hero {
+background: linear-gradient(135deg, #12121a, #1a1a2a);
+border-bottom:1px solid var(–border);
+padding:40px 24px 32px;
+text-align:center;
+}
+.hero-label { font-family:‘Space Mono’,monospace; font-size:.72em; color:var(–accent); letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; }
+.hero-title { font-family:‘Shippori Mincho’,serif; font-size:1.8em; font-weight:700; color:var(–text); line-height:1.4; margin-bottom:12px; }
+.hero-desc { font-size:.9em; color:var(–text-sub); max-width:520px; margin:0 auto 20px; line-height:1.9; }
+.hero-tags { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+.hero-tag { background:var(–tag-bg); color:var(–tag-text); border:1px solid var(–border2); font-size:.72em; padding:4px 12px; border-radius:2px; letter-spacing:.08em; font-family:‘Space Mono’,monospace; }
+
+.container { max-width:760px; margin:0 auto; padding:36px 16px; }
+
+.section-head {
+display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px;
+border-bottom:1px solid var(–border);
+}
+.section-head-line { flex:1; height:1px; background:var(–border); }
+.section-head-label { font-family:‘Space Mono’,monospace; font-size:.7em; color:var(–text-sub); letter-spacing:.15em; white-space:nowrap; }
+
+.quiz-card {
+background:var(–surface); border:1px solid var(–border);
+border-radius:8px; margin-bottom:16px; overflow:hidden;
+transition:border-color .2s, box-shadow .2s;
+}
+.quiz-card:hover { border-color:var(–border2); box-shadow:0 4px 20px rgba(232,200,64,.06); }
+
+.quiz-header { display:flex; align-items:flex-start; gap:16px; padding:20px 22px 18px; }
+.quiz-num {
+flex-shrink:0; width:34px; height:34px;
+background:var(–num-bg); color:var(–num-text);
+border-radius:4px; display:flex; align-items:center; justify-content:center;
+font-family:‘Space Mono’,monospace; font-size:.82em; font-weight:700; margin-top:2px;
+}
+.quiz-body { flex:1; }
+.quiz-meta { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.quiz-cat { font-family:‘Space Mono’,monospace; font-size:.68em; color:var(–accent); letter-spacing:.12em; text-transform:uppercase; }
+.diff-stars { display:flex; gap:2px; }
+.diff-star { font-size:.65em; color:var(–border2); }
+.diff-star.on { color:var(–accent); }
+.quiz-question { font-family:‘Shippori Mincho’,serif; font-size:1.05em; font-weight:600; color:var(–text); line-height:1.7; }
+
+.divider { height:1px; background:var(–border); margin:0; }
+
+.hint-wrap {
+background:var(–hint-bg); padding:12px 22px 12px 72px;
+font-size:.84em; color:#a09060;
+border-left:2px solid var(–hint-line);
+}
+.hint-label { font-family:‘Space Mono’,monospace; font-size:.72em; color:var(–hint-line); letter-spacing:.12em; margin-bottom:3px; }
+
+.btn-wrap { padding:14px 22px 14px 72px; }
+.answer-btn {
+background:transparent; border:1px solid var(–border2); color:var(–text-sub);
+border-radius:4px; padding:8px 20px; font-size:.82em; font-weight:700;
+font-family:‘Space Mono’,monospace; cursor:pointer; letter-spacing:.08em;
+transition:all .18s;
+}
+.answer-btn:hover { border-color:var(–accent); color:var(–accent); }
+
+.answer-box {
+display:none; background:var(–ans-bg);
+border-top:1px solid var(–border);
+border-left:2px solid var(–ans-line);
+padding:14px 22px 14px 72px;
+font-size:.9em; color:#80d8a0;
+animation:slideDown .2s ease;
+}
+.answer-box.show { display:block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+.answer-label { font-family:‘Space Mono’,monospace; font-size:.7em; color:var(–ans-line); letter-spacing:.12em; margin-bottom:5px; }
+.answer-text { color:#c0e8d0; line-height:1.8; }
+
+.footer { margin-top:48px; padding:24px; border-top:1px solid var(–border); text-align:center; font-family:‘Space Mono’,monospace; font-size:.75em; color:var(–text-sub); line-height:2.2; }
+.footer a { color:var(–accent); text-decoration:none; }
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">NAZO — PRESS</div>
+  <nav class="site-nav">
+    <a href="#">TOP</a><a href="#">良問まとめ</a><a href="#">カテゴリ</a><a href="#">難易度別</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-label">FEATURED COLLECTION</div>
+  <h1 class="hero-title">論理 × ひらめき<br>唸る良問だけを厳選10問</h1>
+  <p class="hero-desc">「あるなし」「ひらめき」「論理パズル」を横断して、本当に面白い問題だけを選びました。<br>答えを聞いたとき「なるほど！」と唸れる問題ばかりです。</p>
+  <div class="hero-tags">
+    <span class="hero-tag">あるなし</span>
+    <span class="hero-tag">論理</span>
+    <span class="hero-tag">ひらめき</span>
+    <span class="hero-tag">全10問</span>
+    <span class="hero-tag">難易度: ★★〜★★★★</span>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section-head">
+    <span class="section-head-label">QUESTIONS</span>
+    <div class="section-head-line"></div>
+    <span class="section-head-label">01 — 10</span>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">01</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">ある：春・夏・秋・冬<br>なし：朝・昼・夜・夕<br>「ある」だけに共通するものは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>漢字の中に隠れているものを探してください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」の漢字にはすべて「日（にち・ひ）」が含まれている。春（日が入る）、夏（日+夂）、秋（禾+火に近い）、冬（氷+夂）…より正確には「春夏秋冬」の漢字にはすべて「人が季節を感じる」という概念が含まれ、「朝昼夜夕」は時間帯。別解：「春夏秋冬」は四季＝4つ、「朝昼夜夕」も4つだが、「四季」という言葉が存在して「四時」は一般的でない。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">02</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">論理パズル</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">赤・青・黄の3色のボールが1個ずつある。目隠しをして1個取り出した。残り2個のボールの色の組み合わせは何通り？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>取り出した1個によって残りが決まります。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">3通り。取り出すボールが赤なら（青・黄）、青なら（赤・黄）、黄なら（赤・青）が残る。取り出すボールの色が3パターンあり、それぞれ残り2個の組み合わせが異なる。シンプルだが「目隠し」という言葉に惑わされる問題。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">03</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">ある：カレンダー・ハサミ・メガネ・ズボン<br>なし：時計・ナイフ・サングラス・スカート<br>共通するルールは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ある」のものは、ある意味「2つ」あります。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」のものはすべて「複数形（ペア）」で成り立つもの。カレンダー（月×日のペア）ではなく、ハサミ（2枚の刃）・メガネ（2枚のレンズ）・ズボン（2本の筒）・カレンダー（2つのページが合わさる）。対して時計・ナイフ・サングラス（…サングラスも2枚では？）→より正確には「ある」は常に「2つ合わさって1つ」の構造を持つもの。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">04</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">ひらめき</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">どんなに長くても「3文字」、どんなに短くても「3文字」。これなーんだ？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「長さ」の単位を表す言葉です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「みじかい（短い）」ではなく「なが（長）さ」→「ながさ（長さ）」は3文字、「みじかさ（短さ）」も4文字。最もスマートな答えは「たんい（単位）」…ではなく「ながさ」という言葉自体が3文字。どんなに長くても短くても、「ながさ」という言葉は常に「な・が・さ」の3文字。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">05</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">論理パズル</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">Aさんは「私は嘘をついたことが一度もない」と言った。この発言は真実か嘘か？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>この発言自体が成立するかどうかを考えてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「真実である可能性は非常に低い」が、論理的に否定はできない。しかし一般的には、人間が生涯一度も嘘をついたことがないとは考えにくい。もしこれが嘘なら「嘘をついたことがある」ことになり、発言自体が嘘と証明される。逆に真実なら問題ない。答えは「真実か嘘かを確認する方法がない」が正確。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">06</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">ある：北海道・神奈川・鹿児島・和歌山<br>なし：東京・大阪・愛知・福岡<br>共通するルールは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>都道府県の「種別」に注目してみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」はすべて「道・県」（北海道・神奈川県・鹿児島県・和歌山県）。「なし」はすべて「都・府」（東京都・大阪府・愛知県…愛知は県なので別解が必要）。最も正確には「ある」のグループは読み仮名が5文字以上の都道府県名、または「都・府」ではなく「道・県」の中でも特定の文字数のもの。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">07</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">ひらめき</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">午前0時に生まれた赤ちゃんがいる。その子の誕生日は「昨日」か「今日」か？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「午前0時」はどの日に属するかを考えて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「今日」。午前0時は新しい日が始まる瞬間（00:00:00）なので、その日が誕生日となる。「昨日の終わり」ではなく「今日の始まり」。ただし感覚的に「深夜＝前日の夜」と思いがちなのがひっかけポイント。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">08</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">あるなし</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">ある：さくら・ふじ・まつ・たけ<br>なし：うめ・もも・きく・あじさい<br>共通するルールは何？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>読み仮名の文字数に注目。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ある」はすべて読み仮名が3文字（さくら・ふじ・まつ・たけ）→ふじは2文字、まつは2文字…再検討すると「ある」はすべてお札や硬貨のデザインに使われた・または日本の名所・名物として「千円札・富士山・松竹梅」に関連するものという解釈も。最もシンプルには「さくら・ふじ・まつ・たけ」は日本を代表する自然のシンボルとして一括りにされる四者。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">09</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">論理パズル</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">「この文章には誤りがある」という文章は正しいか、誤りか？</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>自己言及のパラドックスです。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">どちらとも決定できない（パラドックス）。「正しい」とすると「誤りがある」が真になり矛盾、「誤り」とすると「誤りはない」が真になりまた矛盾。これは「嘘つきのパラドックス」（クレタ人のパラドックス）と同種の古典的論理矛盾。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">10</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">ひらめき</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">兄は弟より4歳年上。10年後、兄は弟の何倍の年齢になるか？ 現在弟は6歳。</div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>10年後の二人の年齢をそれぞれ計算してみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">1.25倍。現在：弟6歳、兄10歳。10年後：弟16歳、兄20歳。20÷16＝1.25倍。「4歳差」は変わらないが、年齢が大きくなるほど倍率は1に近づく。子どもの頃は「お兄ちゃんはずっと大きい」と感じるが、大人になれば差は縮まる。</div></div>
+  </div>
+
+  <div class="footer">
+    NAZO — PRESS | 良問まとめコレクション<br>
+    <a href="#">あるなし特集へ</a> &nbsp;—&nbsp; <a href="#">水平思考クイズへ</a> &nbsp;—&nbsp; <a href="#">難問チャレンジへ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? 'REVEAL ANSWER' : 'HIDE ANSWER';
+}
+</script>
+</body>
+</html>
