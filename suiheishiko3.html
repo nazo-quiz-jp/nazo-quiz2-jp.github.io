@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第3弾】これが解けたら天才！？超難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;letter-spacing:.05em;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:center;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;flex-shrink:0;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;}
+  .quiz-question{padding:10px 18px 14px 64px;font-size:1.05em;font-weight:700;color:var(--text);line-height:1.65;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;transition:background .18s;}
+  .answer-btn:hover{background:var(--accent-light);}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.75;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab active">むずかしい</div><div class="level-tab">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko1.html" class="nav-link">第1弾</a><a href="suiheishiko2.html" class="nav-link">第2弾</a><a href="suiheishiko3.html" class="nav-link current">第3弾</a><a href="suiheishiko4.html" class="nav-link">第4弾🌸</a><a href="suiheishiko5.html" class="nav-link">第5弾👻</a><a href="suiheishiko6.html" class="nav-link">第6弾🍂</a><a href="suiheishiko7.html" class="nav-link">第7弾❄️</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第3弾】これが解けたら天才！？超難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">第3弾</span><span class="tag">全10問</span><span class="tag">超難問</span></div>
+    <div class="article-head-desc">思い込みを捨てて、あらゆる可能性を考えてみてください。「答えを見る」ボタンを押すまでが勝負です！</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は毎朝、自分の家の玄関ドアに「おはよう」と声をかけてから出かける。家族はいない。彼は正常な精神状態だ。なぜそんなことをするのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>ドアに「反応」があります。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男はスマートホームのAIスピーカーを玄関に設置しており、毎朝「おはよう」と声をかけることで天気予報・ニュース・スケジュールを読み上げてもらっていた。傍から見るとドアに話しかけているように見えた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男が無人島に流れ着いた。食料も水もない。しかし男は3週間後に自力で島を脱出し、元気な姿で帰還した。島には船も筏を作る材料もなかった。どうやって脱出したのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男は島から「動いていない」かもしれません。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">その島は潮の満ち引きで水没と露出を繰り返す小さな岩礁だった。3週間後の干潮時に、岩礁から歩いて渡れる距離に陸地が現れた。男は潮の状態を観察し続け、そのタイミングを待って歩いて脱出した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある写真家が、同じ場所で同じ構図で毎年1枚だけ写真を撮り続けた。30年後、その写真集は世界的に有名になった。しかし写真家自身は一度もその場所に行ったことがない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>「行けない場所」です。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">写真家が撮っていたのは自分の家の窓から見える景色だった。写真家は長期入院中または重度の外出困難な状態だったため一度も外に出られなかった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は自分の誕生日を毎年2回お祝いする。双子でも、誕生日が2つある国籍を持っているわけでもない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>カレンダーに関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は2月29日生まれだった。うるう年には実際の誕生日でお祝いし、うるう年以外の年は2月28日と3月1日の両方でお祝いする習慣にしていた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある会社では、面接で「あなたの弱点を教えてください」と聞いた。候補者Aは正直に弱点を話し、候補者Bは「弱点はありません」と答えた。会社はAではなくBを採用した。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>会社が求めていたのは「能力」ではありませんでした。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">その会社はサイバーセキュリティ企業で、採用していたのは侵入テスターのポジションだった。「弱点はありません」と堂々と言い切れる自信と、自己の弱点を晒さない姿勢がセキュリティ職として適性を示していた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は毎朝5時に起き、誰よりも早く職場に到着する。しかし彼は「遅刻常習犯」として有名だった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男の「職場」は普通の場所ではありません。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は国際線のパイロットで、フライトのたびに時差のある国に移動していた。自国では毎朝5時に起きていても、現地時刻基準では「遅刻」と記録され続けていた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある小説家は、デビュー作が大ヒットしたにもかかわらず、続編を一切書かなかった。理由を聞かれると「続きはもう書けない」と答えた。才能が枯れたわけでも、病気でもない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>小説の「内容」に注目してください。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">デビュー作は「主人公が死ぬ」結末で完結していた。作者はその結末こそが作品の核心と考えており、「あの終わり方を壊す続編は書けない」と判断した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男が川のほとりで釣りをしていた。3時間で10匹釣れたが、男は一匹も持ち帰らなかった。魚が嫌いなわけでも、リリースが義務なわけでもない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男は「釣り」を目的に来ていませんでした。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は映画の撮影スタッフで、主人公が釣りをするシーンのエキストラ兼小道具担当だった。撮影終了後は魚を川に戻し撤収した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は「自分は世界一の嘘つきだ」と言い続けている。しかし周囲の人は全員、彼の言葉を信じている。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>「嘘つき」という言葉の別の意味を考えてみてください。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は世界的に有名な小説家・脚本家で、フィクションを作ることを職業にしていた。「世界一の嘘つき」とは「世界一の作り話の名手」という意味で、それが事実として認められていた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男が「私はこの建物の中で死ぬだろう」と言った。その言葉通り、男はその建物の中で生涯を終えた。しかし周囲の誰も悲しまなかった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>「死ぬ場所」として理想的な建物があります。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">その建物は男が長年勤め上げた病院だった。男は高齢の医師で、現役のまま病院内で老衰により穏やかに息を引き取り、本人の望み通りの大往生として周囲全員から祝福された。</div></div></div></div>
+
+  <div class="footer"><a href="suiheishiko2.html">第2弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko4.html">第4弾へ</a></div>
+</div>
+<script>function toggleAnswer(btn){const box=btn.closest('.quiz-card').querySelector('.answer-box');const open=box.classList.contains('show');box.classList.toggle('show',!open);btn.textContent=open?'答えを見る':'答えを隠す';btn.classList.toggle('open',!open);}</script>
+</body></html>
