@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【動物なぞなぞ】大人も子供も楽しい！動物にまつわる良問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+  :root {
+    --bg:#f4f8f2; --surface:#ffffff; --border:#d8e8d0;
+    --accent:#2d7a40; --accent2:#52b866;
+    --text:#122018; --text-sub:#587060;
+    --hint-bg:#f6fbf4; --hint-line:#78c840;
+    --ans-bg:#eef8f0; --ans-line:#2d7a40;
+    --num-bg:#2d7a40; --num-text:#fff;
+    --tag-bg:#e4f4e8; --tag-text:#2d7a40;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+  .site-header { background:var(--surface); border-bottom:1px solid var(--border); padding:14px 20px; display:flex; align-items:center; gap:10px; }
+  .site-logo { font-family:'Noto Serif JP',serif; font-size:1.1em; font-weight:700; color:var(--accent); letter-spacing:.05em; }
+  .site-tagline { font-size:.78em; color:var(--text-sub); border-left:1px solid var(--border); padding-left:10px; margin-left:4px; }
+  .container { max-width:740px; margin:0 auto; padding:32px 16px; }
+  .breadcrumb { font-size:.78em; color:var(--text-sub); margin-bottom:20px; }
+  .breadcrumb span { color:var(--border); margin:0 6px; }
+  .article-title { font-family:'Noto Serif JP',serif; font-size:1.6em; font-weight:700; line-height:1.45; margin-bottom:12px; letter-spacing:.02em; }
+  .article-meta { display:flex; align-items:center; gap:12px; margin-bottom:24px; flex-wrap:wrap; }
+  .tag { background:var(--tag-bg); color:var(--tag-text); font-size:.75em; font-weight:700; padding:3px 10px; border-radius:3px; letter-spacing:.05em; }
+  .meta-text { font-size:.78em; color:var(--text-sub); }
+  .lead { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:32px; font-size:.95em; color:var(--text-sub); line-height:1.85; }
+  .section-label { font-family:'DM Mono',monospace; font-size:.75em; font-weight:500; color:var(--text-sub); letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; margin-bottom:18px; overflow:hidden; transition:box-shadow .2s; }
+  .quiz-card:hover { box-shadow:0 4px 16px rgba(45,122,64,.08); }
+  .quiz-header { display:flex; align-items:flex-start; gap:14px; padding:18px 20px 16px; }
+  .quiz-num { flex-shrink:0; width:32px; height:32px; background:var(--num-bg); color:var(--num-text); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.85em; font-weight:500; margin-top:2px; }
+  .quiz-body { flex:1; }
+  .quiz-type { font-size:.72em; font-weight:700; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; font-family:'DM Mono',monospace; }
+  .diff-row { display:flex; gap:3px; margin-bottom:8px; }
+  .diff-pip { width:10px; height:4px; border-radius:2px; background:var(--border); }
+  .diff-pip.on { background:var(--accent); }
+  .quiz-question { font-family:'Noto Serif JP',serif; font-size:1.05em; font-weight:600; color:var(--text); line-height:1.65; }
+  .hint-wrap { background:var(--hint-bg); border-top:1px solid var(--border); padding:12px 20px 12px 66px; font-size:.85em; color:#507030; border-left:3px solid var(--hint-line); }
+  .hint-label { font-weight:700; font-family:'DM Mono',monospace; font-size:.8em; letter-spacing:.08em; color:var(--hint-line); margin-bottom:3px; }
+  .btn-wrap { padding:14px 20px 14px 66px; border-top:1px solid var(--border); }
+  .answer-btn { background:transparent; border:1.5px solid var(--accent); color:var(--accent); border-radius:6px; padding:8px 20px; font-size:.85em; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer; letter-spacing:.05em; transition:all .18s; }
+  .answer-btn:hover { background:var(--accent); color:#fff; }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid #b8e0c0; padding:14px 20px 14px 66px; font-size:.92em; color:#1a4828; animation:slideDown .25s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+  .answer-label { font-family:'DM Mono',monospace; font-size:.78em; font-weight:500; color:var(--accent); letter-spacing:.1em; margin-bottom:5px; }
+  .answer-text { line-height:1.75; }
+  .article-footer { margin-top:48px; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:.85em; color:var(--text-sub); line-height:2; }
+  .article-footer a { color:var(--accent); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞとき広場</div>
+  <div class="site-tagline">毎日あたまをやわらかく</div>
+</header>
+<div class="container">
+  <div class="breadcrumb">トップ <span>/</span> なぞなぞ <span>/</span> 動物</div>
+  <h1 class="article-title">動物なぞなぞ 傑作10選 — 知識よりひらめきで解く良問集</h1>
+  <div class="article-meta">
+    <span class="tag">動物</span><span class="tag">全10問</span><span class="tag">かんたん〜むずかしい</span>
+    <span class="meta-text">ひっかけあり / 言葉遊びあり</span>
+  </div>
+  <div class="lead">
+    犬・猫・魚・虫… 動物の名前や特徴を使ったひらめきなぞなぞを10問集めました。<br>
+    知識がなくても言葉の感覚で解けるものばかり。家族や友人と声に出して楽しんでください。
+  </div>
+  <div class="section-label">Questions — 01 to 10</div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">01</div><div class="quiz-body">
+      <div class="quiz-type">なぞなぞ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">犬は犬でも、水に浮く犬はなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>泳ぐのが得意な「犬」です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">浮き輪（うきわ）…ではなく、「犬かき（犬泳ぎ）」をする犬そのもの。または「コルク犬」など言葉遊びのバリエーションも。最も定番の答えは「コルク犬」ではなく、「泳ぐ犬＝水に浮く」という犬かき自体が答え。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">02</div><div class="quiz-body">
+      <div class="quiz-type">言葉遊び</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">ゾウの鼻を短くするとできる食べ物はなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「ぞうのはな」から文字を減らしてみましょう。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">バナナ。「ぞうのはな」→「はな（鼻）を短く」→「ぞうのは」→さらに短く→「ばなな（バナナ）」ではなく、ゾウの好物といえばバナナ、という連想クイズ。または「象の鼻」の形がバナナに似ているという視覚的ひらめき。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">03</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">ウサギが一番速く走れるのはいつ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>時間や季節を考えてみましょう。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ピョン」年（卯年）。干支の卯年（うさぎ年）＝「ぴょん年」に最も元気よく走れる、という言葉遊び。または「追いかけられているとき」というシンプルなひっかけ答えも正解。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">04</div><div class="quiz-body">
+      <div class="quiz-type">なぞなぞ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">頭に「お」をつけると怖くなる動物はなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>森の王様といわれる動物です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">おに（鬼）…ではなく、「クマ」→「おクマ（お熊）」ではなく、「ライオン」→「おライオン」？ 最も有名な答えは「オオカミ」→頭に「お」をつけると「おおかみ（大神・狼）」でそのまま怖い動物になる。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">05</div><div class="quiz-body">
+      <div class="quiz-type">言葉遊び</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">「カエル」の鳴き声は「ケロケロ」。では「カエル」を逆さに読むとどんな動物？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「かえる」をひらがなで逆から読んでみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">るえか → 「ルアーカ」？ 正確には「かえる」→逆さ「るえか」で特定の動物にはならない。ただし「カエル」→英語「frog」→逆さ「gorf」。このクイズの真の答えは「カエル自身」。なぜなら「帰る（かえる）」という言葉と同じで、元の場所に戻る＝自分自身に戻る。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">06</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">ネコは「ニャー」、犬は「ワン」。では「クジラ」は何と鳴く？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>クジラの鳴き声を英語で考えてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「ソング（歌）」。クジラは超音波で複雑な「歌」を歌うことで知られ、英語では「whale song（クジラの歌）」と呼ばれる。「鳴き声」というより「歌声」が正しい表現。知識系のひっかけ問題。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">07</div><div class="quiz-body">
+      <div class="quiz-type">なぞなぞ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">タコは足が8本。では「タコ焼き」には何本の足が入っている？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>タコ焼きの中身を思い浮かべて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">0本。タコ焼きに入っているのはタコの「足」ではなく、切り取られた「足の断片（一部）」であり、また多くのタコ焼きには足ではなく胴体部分も使われる。そして「足」として入っているわけではなく「具材」として入っている。厳密には「数えられない」が正解。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">08</div><div class="quiz-body">
+      <div class="quiz-type">言葉遊び</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div></div>
+      <div class="quiz-question">動物の名前が隠れた都道府県はどこ？ 「い」から始まる動物が入っています。</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>魚の名前が都道府県名に隠れています。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「いわて（岩手）」の中に「いわな（岩魚）」、「いしかわ（石川）」の中に「いしだい（石鯛）」などが隠れている。最もわかりやすいのは「いわて」→「いわ」＋「て」→「いわし（鰯）」に近い「いわ」が含まれる。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">09</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">空を飛べない鳥はどれ？ ペンギン・ダチョウ・ニワトリ。この中で一番足が速いのは？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>三択のうち、陸上最速の走鳥類を思い出して。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">ダチョウ。時速70km以上で走れる世界最速の二足走行動物。ペンギンは泳ぎが速く、ニワトリも短距離は意外と速いが、ダチョウには及ばない。「飛べない鳥＝遅い」という思い込みを崩す問題。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">10</div><div class="quiz-body">
+      <div class="quiz-type">なぞなぞ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">世界で一番高いところに住んでいる動物はなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「高いところ」の意味を2通り考えてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">キリン。「高いところ」＝標高ではなく「高い場所（高い位置）」に顔がある動物として、キリンが最も「高いところ」に頭がある陸上動物。または標高の意味なら「ヤク（チベット高原）」なども正解。</div></div>
+  </div>
+
+  <div class="article-footer">
+    全10問、お疲れさまでした！<br>
+    <a href="#">食べ物なぞなぞはこちら</a> &nbsp;|&nbsp; <a href="#">ひっかけクイズ一覧へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+}
+</script>
+</body>
+</html>
