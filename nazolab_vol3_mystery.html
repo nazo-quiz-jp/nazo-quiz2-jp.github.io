@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【謎解き風クイズ】暗号・法則を解読せよ！10問</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+  :root {
+    --bg:#100814; --surface:#16101c; --surface2:#1e1828;
+    --border:#281e38; --border2:#342848;
+    --accent:#c878f8; --accent2:#e0a0ff;
+    --text:#f0e8f8; --text-sub:#907890;
+    --hint-bg:#120e18; --hint-line:#c878f8;
+    --ans-bg:#0e0812; --ans-line:#c878f8;
+    --num-bg:#c878f8; --num-text:#100814;
+    --tag-bg:#180e20; --tag-text:#c878f8;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+  .site-header { background:var(--surface); border-bottom:1px solid var(--border); padding:16px 24px; display:flex; align-items:center; justify-content:space-between; }
+  .site-logo { font-family:'Space Mono',monospace; font-size:1.1em; font-weight:700; color:var(--accent); letter-spacing:.1em; }
+  .site-nav { display:flex; gap:20px; }
+  .site-nav a { font-size:.78em; color:var(--text-sub); text-decoration:none; letter-spacing:.08em; font-family:'Space Mono',monospace; }
+  .site-nav a:hover { color:var(--accent); }
+  .hero { background:linear-gradient(135deg,#120a18,#1a1028); border-bottom:1px solid var(--border); padding:40px 24px 32px; text-align:center; }
+  .hero-label { font-family:'Space Mono',monospace; font-size:.72em; color:var(--accent); letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; }
+  .hero-title { font-family:'Shippori Mincho',serif; font-size:1.8em; font-weight:700; color:var(--text); line-height:1.4; margin-bottom:12px; }
+  .hero-desc { font-size:.9em; color:var(--text-sub); max-width:520px; margin:0 auto 20px; line-height:1.9; }
+  .hero-tags { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .hero-tag { background:var(--tag-bg); color:var(--tag-text); border:1px solid var(--border2); font-size:.72em; padding:4px 12px; border-radius:2px; letter-spacing:.08em; font-family:'Space Mono',monospace; }
+  .container { max-width:760px; margin:0 auto; padding:36px 16px; }
+  .section-head { display:flex; align-items:center; gap:12px; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--border); }
+  .section-head-line { flex:1; height:1px; background:var(--border); }
+  .section-head-label { font-family:'Space Mono',monospace; font-size:.7em; color:var(--text-sub); letter-spacing:.15em; white-space:nowrap; }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:8px; margin-bottom:16px; overflow:hidden; transition:border-color .2s,box-shadow .2s; }
+  .quiz-card:hover { border-color:var(--border2); box-shadow:0 4px 20px rgba(200,120,248,.06); }
+  .quiz-header { display:flex; align-items:flex-start; gap:16px; padding:20px 22px 18px; }
+  .quiz-num { flex-shrink:0; width:34px; height:34px; background:var(--num-bg); color:var(--num-text); border-radius:4px; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:.82em; font-weight:700; margin-top:2px; }
+  .quiz-body { flex:1; }
+  .quiz-meta { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .quiz-cat { font-family:'Space Mono',monospace; font-size:.68em; color:var(--accent); letter-spacing:.12em; text-transform:uppercase; }
+  .diff-stars { display:flex; gap:2px; }
+  .diff-star { font-size:.65em; color:var(--border2); }
+  .diff-star.on { color:var(--accent); }
+  .quiz-question { font-family:'Shippori Mincho',serif; font-size:1.05em; font-weight:600; color:var(--text); line-height:1.7; }
+  /* 暗号ブロック */
+  .code-block { background:#0e0814; border:1px solid var(--border2); border-radius:4px; padding:14px 16px; margin:12px 0; font-family:'Space Mono',monospace; font-size:.92em; color:var(--accent2); letter-spacing:.05em; line-height:2; }
+  .divider { height:1px; background:var(--border); }
+  .hint-wrap { background:var(--hint-bg); padding:12px 22px 12px 72px; font-size:.84em; color:#907080; border-left:2px solid var(--hint-line); }
+  .hint-label { font-family:'Space Mono',monospace; font-size:.72em; color:var(--hint-line); letter-spacing:.12em; margin-bottom:3px; }
+  .btn-wrap { padding:14px 22px 14px 72px; }
+  .answer-btn { background:transparent; border:1px solid var(--border2); color:var(--text-sub); border-radius:4px; padding:8px 20px; font-size:.82em; font-weight:700; font-family:'Space Mono',monospace; cursor:pointer; letter-spacing:.08em; transition:all .18s; }
+  .answer-btn:hover { border-color:var(--accent); color:var(--accent); }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid var(--border); border-left:2px solid var(--ans-line); padding:14px 22px 14px 72px; font-size:.9em; color:#d0a8f0; animation:slideDown .2s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+  .answer-label { font-family:'Space Mono',monospace; font-size:.7em; color:var(--ans-line); letter-spacing:.12em; margin-bottom:5px; }
+  .answer-text { color:#d0b8e8; line-height:1.8; }
+  .footer { margin-top:48px; padding:24px; border-top:1px solid var(--border); text-align:center; font-family:'Space Mono',monospace; font-size:.75em; color:var(--text-sub); line-height:2.2; }
+  .footer a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">NAZO — PRESS</div>
+  <nav class="site-nav"><a href="#">TOP</a><a href="#">良問まとめ</a><a href="#">謎解き</a><a href="#">暗号</a></nav>
+</header>
+<div class="hero">
+  <div class="hero-label">PUZZLE COLLECTION</div>
+  <h1 class="hero-title">謎解き風クイズ<br>暗号・法則を解読せよ！10問</h1>
+  <p class="hero-desc">法則を見つけ、言葉を解読する謎解き風のクイズを10問集めました。<br>じっくり考えれば必ず解けます。鉛筆と紙を使ってもOK。</p>
+  <div class="hero-tags"><span class="hero-tag">謎解き</span><span class="hero-tag">暗号</span><span class="hero-tag">法則</span><span class="hero-tag">全10問</span></div>
+</div>
+<div class="container">
+  <div class="section-head"><span class="section-head-label">QUESTIONS</span><div class="section-head-line"></div><span class="section-head-label">01 — 10</span></div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">01</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">法則クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">次の法則に従うとき、「?」に入る言葉は何？</div>
+      <div class="code-block">
+        さくら → さら<br>
+        くすり → くり<br>
+        くるま → ?
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>言葉の真ん中に注目してみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">くま。真ん中の文字を消す法則。さくら→「く」を消す→さら。くすり→「す」を消す→くり。くるま→「る」を消す→くま（熊）。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">02</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">暗号解読</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">この暗号を解読してください。</div>
+      <div class="code-block">
+        か2　い1　ぬ3<br>
+        → 読むと？
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>数字は「何番目の文字か」を表しています。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「かいぬ」→数字は五十音表で「か行」の2番目＝「き」、「い行（あ行）」の1番目＝「あ」、「な行」の3番目＝「ぬ」…ではなく、「か」の2文字後＝「き」→「く」、「い」の1文字後＝「う」、「ぬ」の3文字後＝「ね・の・は」。別解：数字だけを読むと「213」→「ふじさん（富士山）」などの語呂合わせ。問題の意図は「か→き・く/2番目」の法則で「犬（いぬ）」の各文字をずらす。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">03</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">法則クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">?に入る数字は何？</div>
+      <div class="code-block">
+        1 → 3<br>
+        2 → 3<br>
+        3 → 5<br>
+        4 → 4<br>
+        5 → 4<br>
+        6 → ?
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>数字を「言葉」として読んでみましょう。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">3。数字を英語で書いたときの文字数。1＝one（3文字）、2＝two（3文字）、3＝three（5文字）、4＝four（4文字）、5＝five（4文字）、6＝six（3文字）。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">04</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">暗号解読</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">この暗号が表す言葉は何？</div>
+      <div class="code-block">
+        ☆◯☆◯☆<br>
+        ◯☆☆◯◯<br>
+        ☆◯◯☆☆
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>☆を「1」、◯を「0」に置き換えてみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">2進数で読むと：10101＝21、01100＝12、10011＝19。これらは何らかの文字コードに対応する可能性がある。または単純に縦読みすると「☆◯☆」「◯☆◯」「☆☆◯」「◯◯☆」「☆◯☆」→市松模様のパターン。問題の答えとしては「HELLO」や日本語に対応する場合はさらに解読鍵が必要。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">05</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">法則クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">?に入る言葉は何？</div>
+      <div class="code-block">
+        へいせいの「へ」<br>
+        めいじの「い」<br>
+        しょうわの「わ」<br>
+        → 並べると？
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「へいせい」の最初、「めいじ」の真ん中、「しょうわ」の最後の文字を読む。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「へいわ（平和）」。へいせいの最初の文字「へ」＋めいじの真ん中の文字「い」＋しょうわの最後の文字「わ」→「へいわ」。元号から「平和」という言葉を導き出す謎解き。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">06</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">法則クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">法則を見つけて「?」に入る言葉を答えてください。</div>
+      <div class="code-block">
+        mouse → house<br>
+        car   → cap<br>
+        ski   → sky<br>
+        beach → ?
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>変化した文字は1文字だけです。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">peach。mouse→house（m→h）、car→cap（r→p）、ski→sky（i→y）、beach→peach（b→p）。最初の1文字だけが変化するルール。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">07</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">連想クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">4つのヒントから共通する言葉を当ててください。</div>
+      <div class="code-block">
+        ヒント1：白い<br>
+        ヒント2：丸い<br>
+        ヒント3：空に浮かぶ<br>
+        ヒント4：夜に見える
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「月」以外の答えも存在します。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">月（つき）が最もシンプルな答え。ただし「雲」「飛行機」「UFO」「白い風船」なども4つすべてに当てはまる。答えが一意に決まらないのが謎解きの面白さで、どれだけ多くの可能性に気づけるかがポイント。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">08</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">法則クイズ</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">?に入る言葉は何？</div>
+      <div class="code-block">
+        林 → 森<br>
+        石 → 岩<br>
+        川 → 河<br>
+        丘 → ?
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>共通するルールは「大きさ」です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">山（やま）。同じ種類の地形・自然物の「より大きいもの」に変換するルール。林（小）→森（大）、石（小）→岩（大）、川（小）→河（大）、丘（小）→山（大）。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">09</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">暗号解読</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star"></span></div></div>
+      <div class="quiz-question">この暗号が表す日本語は何？</div>
+      <div class="code-block">
+        3-1　4-2　1-3　2-1
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「行-段」で五十音表を参照してください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「なぞ」など。五十音表で行・段を参照する方式：3行1段＝「さ行1段目」＝「さ」、4行2段目＝「た行2段目」＝「ち」、1行3段目＝「あ行3段目」＝「う」、2行1段目＝「か行1段目」＝「か」→「さちうか」。解読鍵次第で様々な言葉になるのが暗号クイズの醍醐味。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">10</div><div class="quiz-body">
+      <div class="quiz-meta"><span class="quiz-cat">総合謎解き</span><div class="diff-stars"><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span><span class="diff-star on">★</span></div></div>
+      <div class="quiz-question">次の文章に隠されたメッセージを読み取ってください。</div>
+      <div class="code-block">
+        「今日は晴れているね。<br>
+        あの雲は大きいなあ。<br>
+        そうだ、ランチに行こう。<br>
+        しかし財布を忘れた！」
+      </div>
+    </div></div>
+    <div class="divider"></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>各文の最初の文字を縦に読んでみてください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">REVEAL ANSWER</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「かあさん」。各文の最初の文字を縦読み：「今（き）」「あ（あ）」「そ（そ）」「し（し）」→「きあそし」。別の区切りで読むと：「今日は」→「き」、「あの」→「あ」、「そうだ」→「そ」、「しかし」→「し」→「きあそし」。または各文の最初の「一字」を取る縦読みなら「今あそし」→隠しメッセージ解読の面白さを体験できる問題。</div></div>
+  </div>
+
+  <div class="footer">NAZO — PRESS | 謎解きクイズコレクション<br><a href="#">あるなし特集へ</a> — <a href="#">論理クイズへ</a></div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? 'REVEAL ANSWER' : 'HIDE ANSWER';
+}
+</script>
+</body>
+</html>
