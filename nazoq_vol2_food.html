@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【食べ物なぞなぞ】大人も唸る！食にまつわる良問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+  :root {
+    --bg:#fdf8f2; --surface:#ffffff; --border:#e8dfd4;
+    --accent:#c0622a; --accent2:#e8855a;
+    --text:#1e1612; --text-sub:#7a6a5a;
+    --hint-bg:#fffbf5; --hint-line:#e8a840;
+    --ans-bg:#fdf2ec; --ans-line:#c0622a;
+    --num-bg:#c0622a; --num-text:#fff;
+    --tag-bg:#fceee6; --tag-text:#c0622a;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+  .site-header { background:var(--surface); border-bottom:1px solid var(--border); padding:14px 20px; display:flex; align-items:center; gap:10px; }
+  .site-logo { font-family:'Noto Serif JP',serif; font-size:1.1em; font-weight:700; color:var(--accent); letter-spacing:.05em; }
+  .site-tagline { font-size:.78em; color:var(--text-sub); border-left:1px solid var(--border); padding-left:10px; margin-left:4px; }
+  .container { max-width:740px; margin:0 auto; padding:32px 16px; }
+  .breadcrumb { font-size:.78em; color:var(--text-sub); margin-bottom:20px; }
+  .breadcrumb span { color:var(--border); margin:0 6px; }
+  .article-title { font-family:'Noto Serif JP',serif; font-size:1.6em; font-weight:700; line-height:1.45; margin-bottom:12px; letter-spacing:.02em; }
+  .article-meta { display:flex; align-items:center; gap:12px; margin-bottom:24px; flex-wrap:wrap; }
+  .tag { background:var(--tag-bg); color:var(--tag-text); font-size:.75em; font-weight:700; padding:3px 10px; border-radius:3px; letter-spacing:.05em; }
+  .meta-text { font-size:.78em; color:var(--text-sub); }
+  .lead { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:32px; font-size:.95em; color:var(--text-sub); line-height:1.85; }
+  .section-label { font-family:'DM Mono',monospace; font-size:.75em; font-weight:500; color:var(--text-sub); letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; margin-bottom:18px; overflow:hidden; transition:box-shadow .2s; }
+  .quiz-card:hover { box-shadow:0 4px 16px rgba(192,98,42,.08); }
+  .quiz-header { display:flex; align-items:flex-start; gap:14px; padding:18px 20px 16px; }
+  .quiz-num { flex-shrink:0; width:32px; height:32px; background:var(--num-bg); color:var(--num-text); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.85em; font-weight:500; margin-top:2px; }
+  .quiz-body { flex:1; }
+  .quiz-type { font-size:.72em; font-weight:700; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; font-family:'DM Mono',monospace; }
+  .diff-row { display:flex; gap:3px; margin-bottom:8px; }
+  .diff-pip { width:10px; height:4px; border-radius:2px; background:var(--border); }
+  .diff-pip.on { background:var(--accent); }
+  .quiz-question { font-family:'Noto Serif JP',serif; font-size:1.05em; font-weight:600; color:var(--text); line-height:1.65; }
+  .hint-wrap { background:var(--hint-bg); border-top:1px solid var(--border); padding:12px 20px 12px 66px; font-size:.85em; color:#7a6030; border-left:3px solid var(--hint-line); }
+  .hint-label { font-weight:700; font-family:'DM Mono',monospace; font-size:.8em; letter-spacing:.08em; color:var(--hint-line); margin-bottom:3px; }
+  .btn-wrap { padding:14px 20px 14px 66px; border-top:1px solid var(--border); }
+  .answer-btn { background:transparent; border:1.5px solid var(--accent); color:var(--accent); border-radius:6px; padding:8px 20px; font-size:.85em; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer; letter-spacing:.05em; transition:all .18s; }
+  .answer-btn:hover { background:var(--accent); color:#fff; }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid #e8c8b8; padding:14px 20px 14px 66px; font-size:.92em; color:#5a2010; animation:slideDown .25s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+  .answer-label { font-family:'DM Mono',monospace; font-size:.78em; font-weight:500; color:var(--accent); letter-spacing:.1em; margin-bottom:5px; }
+  .answer-text { line-height:1.75; }
+  .article-footer { margin-top:48px; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:.85em; color:var(--text-sub); line-height:2; }
+  .article-footer a { color:var(--accent); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞとき広場</div>
+  <div class="site-tagline">毎日あたまをやわらかく</div>
+</header>
+<div class="container">
+  <div class="breadcrumb">トップ <span>/</span> なぞなぞ <span>/</span> 食べ物</div>
+  <h1 class="article-title">食べ物なぞなぞ 傑作10選 — 食卓で盛り上がる良問集</h1>
+  <div class="article-meta">
+    <span class="tag">食べ物</span><span class="tag">全10問</span><span class="tag">ふつう〜むずかしい</span>
+    <span class="meta-text">ひっかけあり / 言葉遊びあり</span>
+  </div>
+  <div class="lead">
+    ご飯・スイーツ・野菜・魚介… 食べ物にまつわる言葉をひねった良問を10問ご用意しました。<br>
+    ヒントを見る前にじっくり考えてみてください。答えがわかった瞬間の「あー！」が最高です。
+  </div>
+  <div class="section-label">Questions — 01 to 10</div>
+
+  <!-- Q1 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">01</div>
+      <div class="quiz-body">
+        <div class="quiz-type">なぞなぞ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">パンはパンでも、食べられないパンはなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>工事現場でよく見ます。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">フライパン。「フライパン」の「パン」は調理器具であり食べ物ではない。「パン」という言葉のひっかけ問題。</div></div>
+  </div>
+
+  <!-- Q2 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">02</div>
+      <div class="quiz-body">
+        <div class="quiz-type">言葉遊び</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">いつも「おなかをすかせている」野菜はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「す」という文字に注目。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">スイカ。「す（空）いている」→「すいか」。おなかが「すいて（空いて）」いる＝「すいか」という言葉遊び。</div></div>
+  </div>
+
+  <!-- Q3 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">03</div>
+      <div class="quiz-body">
+        <div class="quiz-type">ひっかけ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">焼いても焼いても燃えない食べ物はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>夏の定番おやつです。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">アイスクリーム。「焼いて（灼いて）も燃えない」→どれだけ暑くても（熱をくわえても）アイスは「燃えない」という見立て。「冷たいから燃えない」という逆説のひっかけ。</div></div>
+  </div>
+
+  <!-- Q4 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">04</div>
+      <div class="quiz-body">
+        <div class="quiz-type">言葉遊び</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">逆さにすると外国になる食べ物はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>日本でもよく食べられる魚です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">タイ（鯛）。「タイ」を逆さにすると「イタ（イタリア）」…ではなく「タイ」→逆さ「イタ」。正解は「イカ」→逆さ「カイ（？）」ではなく、「タイ」→逆さ「イタ（伊太）」または「エビ」→逆さ「ビエ」…もっとも有名な正解は「タイ（鯛）」→逆さ「イタ」＝タイ王国（Thailand）の略称「タイ」。</div></div>
+  </div>
+
+  <!-- Q5 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">05</div>
+      <div class="quiz-body">
+        <div class="quiz-type">なぞなぞ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">切っても切っても切り口がひとつしかない食べ物はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>和食によく使われます。筒のような形。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">レンコン（蓮根）。レンコンはどこを切っても穴が開いた同じ模様（切り口）が現れる。「切り口がひとつ＝同じ形しか出てこない」という見立て。</div></div>
+  </div>
+
+  <!-- Q6 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">06</div>
+      <div class="quiz-body">
+        <div class="quiz-type">言葉遊び</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">「海老」なのに海にいない、「老」なのに若い。これなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>お正月のおせち料理で定番です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">車海老（クルマエビ）の稚エビ（赤ちゃんエビ）…ではなく、これは「エビ」という漢字そのものの謎かけ。「海老」と書くが、エビは「海の老人」ではなく甲殻類。「老（おいた）」のに曲がっていて若々しく動く。おせち料理では長寿の象徴として使われる。</div></div>
+  </div>
+
+  <!-- Q7 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">07</div>
+      <div class="quiz-body">
+        <div class="quiz-type">ひっかけ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">お肉屋さんに売っているのに、肉が入っていない「肉まん」はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>一文字変えるだけです。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">あんまん。「肉まん」から「肉」を抜いて「あん」を入れると「あんまん」。「肉まん」という言葉の変形バージョン。</div></div>
+  </div>
+
+  <!-- Q8 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">08</div>
+      <div class="quiz-body">
+        <div class="quiz-type">なぞなぞ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">食べると消えるのに、食べなくても消えてしまうものはなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>夏に大活躍する食べ物です。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">アイスクリーム（氷菓子）。食べれば当然なくなるが、食べなくても溶けてなくなってしまう。「食べても食べなくても消える」という二重のユーモア。</div></div>
+  </div>
+
+  <!-- Q9 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">09</div>
+      <div class="quiz-body">
+        <div class="quiz-type">言葉遊び</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div></div>
+        <div class="quiz-question">「カレー」の中に隠れている動物はなーんだ？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>文字をよく見てください。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">カレーの「レー」の中に「れ」→「驢（ろば）」…ではなく、「カレー」→ひらがな「かれー」→「か」「れ」「ー」の中に「れ（驢）」？ 最も有名な答えは「カレー」→「カ＋レー」→「レー」に「馬（うま）」は入らないが、「カレー」のローマ字「curry」の中に「cur（cur＝雑種犬）」が隠れている。または「カレイ（鰈）」という魚が答えの別バージョンも存在する。</div></div>
+  </div>
+
+  <!-- Q10 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">10</div>
+      <div class="quiz-body">
+        <div class="quiz-type">ひっかけ</div>
+        <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+        <div class="quiz-question">世界中の人が毎日食べているのに、一度も作ったことがない料理人がいる。さて、その料理人は誰？</div>
+      </div>
+    </div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「作る」の意味を広くとらえてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">死んだ料理人（故人の料理人）。亡くなった後は「作る」ことができないが、生前に作ったレシピは世界中で作り続けられている。または「生まれつき料理ができない人」なども正解。発想の転換が鍵の問題。</div></div>
+  </div>
+
+  <div class="article-footer">
+    全10問、お疲れさまでした！<br>
+    他のなぞなぞもぜひ挑戦してみてください。<br><br>
+    <a href="#">動物なぞなぞはこちら</a> &nbsp;|&nbsp; <a href="#">ひっかけクイズ一覧へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+}
+</script>
+</body>
+</html>
