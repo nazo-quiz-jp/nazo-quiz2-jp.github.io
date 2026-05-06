@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【季節・行事なぞなぞ】春夏秋冬・イベントにちなんだ10問</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root {
+    --bg:#f4fbf8; --surface:#ffffff; --border:#c8e8d8;
+    --accent:#1a8060; --accent-light:#30a880;
+    --text:#0a2018; --text-sub:#407060;
+    --hint-bg:#f0fbf6; --hint-line:#60c898;
+    --ans-bg:#eaf8f2; --num-bg:#1a8060; --num-text:#fff;
+    --tag-bg:#d8f0e8; --tag-text:#1a8060;
+    --easy:#4caf50; --normal:#ff9800; --hard:#f44336;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Zen Maru Gothic',sans-serif; background:var(--bg); color:var(--text); line-height:1.85; padding-bottom:80px; }
+  .site-header { background:var(--accent); padding:0 20px; display:flex; align-items:center; height:52px; }
+  .site-logo { font-size:1.1em; font-weight:700; color:#fff; letter-spacing:.05em; }
+  .site-sub { font-size:.75em; color:rgba(255,255,255,.7); margin-left:10px; }
+  .level-bar { background:#e0f4ec; border-bottom:1px solid var(--border); padding:0 16px; display:flex; gap:0; overflow-x:auto; }
+  .level-tab { padding:10px 16px; font-size:.78em; font-weight:700; color:var(--text-sub); white-space:nowrap; border-bottom:2px solid transparent; cursor:pointer; }
+  .level-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .container { max-width:720px; margin:0 auto; padding:24px 16px; }
+  .article-head { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px 20px; margin-bottom:24px; }
+  .article-head-title { font-size:1.4em; font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
+  .article-head-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .tag { background:var(--tag-bg); color:var(--tag-text); font-size:.72em; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .article-head-desc { font-size:.9em; color:var(--text-sub); line-height:1.8; }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; margin-bottom:14px; overflow:hidden; }
+  .quiz-top { display:flex; align-items:center; gap:12px; padding:16px 18px 0; }
+  .quiz-num { width:34px; height:34px; background:var(--num-bg); color:var(--num-text); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88em; font-weight:700; flex-shrink:0; }
+  .quiz-level { font-size:.7em; font-weight:700; padding:2px 10px; border-radius:20px; }
+  .quiz-level.easy { background:#e8f5e9; color:var(--easy); }
+  .quiz-level.normal { background:#fff3e0; color:var(--normal); }
+  .quiz-level.hard { background:#ffeaea; color:var(--hard); }
+  .quiz-season { font-size:.7em; font-weight:700; padding:2px 10px; border-radius:20px; background:var(--tag-bg); color:var(--tag-text); }
+  .quiz-question { padding:10px 18px 14px 64px; font-size:1.05em; font-weight:700; color:var(--text); line-height:1.65; }
+  .quiz-bottom { border-top:1px solid var(--border); }
+  .hint-row { padding:10px 18px 10px 64px; background:var(--hint-bg); font-size:.84em; color:#206040; display:flex; align-items:flex-start; gap:8px; }
+  .hint-badge { background:var(--hint-line); color:#fff; font-size:.7em; font-weight:700; padding:1px 8px; border-radius:10px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+  .btn-row { padding:12px 18px 12px 64px; }
+  .answer-btn { background:var(--accent); color:#fff; border:none; border-radius:20px; padding:8px 22px; font-size:.85em; font-weight:700; font-family:'Zen Maru Gothic',sans-serif; cursor:pointer; transition:background .18s; }
+  .answer-btn:hover { background:var(--accent-light); }
+  .answer-btn.open { background:#5cb85c; }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid var(--border); padding:14px 18px 14px 64px; font-size:.92em; color:#084028; animation:slideDown .22s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+  .ans-head { font-size:.78em; font-weight:700; color:var(--accent); margin-bottom:4px; }
+  .ans-body { line-height:1.75; }
+  .footer { margin-top:40px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; text-align:center; font-size:.85em; color:var(--text-sub); line-height:2; }
+  .footer a { color:var(--accent); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞなぞ学園</div>
+  <div class="site-sub">みんなで楽しもう！</div>
+</header>
+<div class="level-bar">
+  <div class="level-tab active">全学年</div>
+  <div class="level-tab">春</div>
+  <div class="level-tab">夏</div>
+  <div class="level-tab">秋</div>
+  <div class="level-tab">冬</div>
+</div>
+<div class="container">
+  <div class="article-head">
+    <div class="article-head-title">季節・行事なぞなぞ — 春夏秋冬・イベント 10問</div>
+    <div class="article-head-meta">
+      <span class="tag">季節</span><span class="tag">行事</span><span class="tag">全10問</span><span class="tag">全学年OK</span>
+    </div>
+    <div class="article-head-desc">春のお花見から冬のクリスマスまで、季節や行事にちなんだなぞなぞを10問！パーティーやレクリエーションにもどうぞ。</div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-level easy">かんたん</span><span class="quiz-season">春</span></div>
+    <div class="quiz-question">春になると咲くのに、「サクラ」という名前の人は春以外でも存在する。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「桜」は花の名前だけじゃありません。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「サクラ」は人の名前（固有名詞）でもあるため、春以外に生まれた人でもサクラという名前を持てる。花と人名は無関係。「名前」と「花」を混同させるひっかけ。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-level easy">かんたん</span><span class="quiz-season">春</span></div>
+    <div class="quiz-question">入学式で一番最初に「入学」する人はだれ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「入学式を始める人」を考えてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">校長先生（こうちょうせんせい）。入学式を開会するのは校長先生なので、式の中で最初に発言する＝「入学式に一番先に参加する」立場。または「名前の五十音順で一番早い生徒」という答えも正解。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-level normal">ふつう</span><span class="quiz-season">夏</span></div>
+    <div class="quiz-question">夏祭りで「すくう」ものといえば「金魚」。では「すくえない」ものはなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「すくう」の別の意味を考えてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「人の命（いのち）」をすくえないお医者さん、または「どうしようもない状況（救えない）」。「すくう＝救う＋掬う」の二重の意味を使ったなぞなぞ。金魚を「掬う」のと命を「救う」のは同じ音でも違う意味。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-level normal">ふつう</span><span class="quiz-season">夏</span></div>
+    <div class="quiz-question">海に行ったのに全然濡れなかった。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>海の「何を」しに行ったか考えてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">砂浜で遊んだ（海に入らなかった）から。または「水族館の海（展示）を見に行った」から。「海に行く＝泳ぐ」という思い込みを外すひっかけ。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-level normal">ふつう</span><span class="quiz-season">秋</span></div>
+    <div class="quiz-question">運動会で一番速く走ったのに、1位になれなかった。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「競走」以外の種目を考えてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「リレー」で速く走ったが、バトンを落としてしまったから。または「障害物競走」でゴール前の障害物を通過できなかったから。「速く走る＝1位」ではない競技が存在するというひっかけ。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-level normal">ふつう</span><span class="quiz-season">秋</span></div>
+    <div class="quiz-question">お月見で「お団子」を供えるのはなぜ？ 月に一番近い食べ物だから？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>形と色を考えてみてください。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">丸くて白いお団子が「満月（まんげつ）」の形と色に似ているため。収穫への感謝と月への供え物として、月に見立てた丸い団子を供える風習。正式には「十五夜」の満月を愛でながら収穫を祝う行事。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-level hard">むずかしい</span><span class="quiz-season">冬</span></div>
+    <div class="quiz-question">クリスマスにサンタクロースは世界中の子どもにプレゼントを配る。では、サンタが一番最初に訪れる国はどこ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>時間帯の違いを考えてみましょう。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">世界で最も早くクリスマスを迎える国は、日付変更線の西側にある国（キリバスや東サモアなど）。日本の東側にある太平洋の島々が世界で最も早く12月25日0時を迎える。サンタは「東から西へ」移動するという説が一般的。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-level hard">むずかしい</span><span class="quiz-season">冬</span></div>
+    <div class="quiz-question">大晦日（おおみそか）の「みそか」とはどういう意味？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>昔の月の数え方に関係しています。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「みそか（三十日）」は旧暦で月の最後の日（30日）を意味する言葉。「大（おお）」は「大きな・最後の」という意味を持ち、「大みそか」＝年の最後の30日目＝12月31日を指す。「みそ」は「三十（みそ）」、「か」は「日（か）」。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-level hard">むずかしい</span><span class="quiz-season">冬</span></div>
+    <div class="quiz-question">お正月に「おせち料理」を食べるのはなぜ？ 「おいしいから」以外の理由は？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「かまどの神様」に関係しています。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">元々は「正月三が日は台所の神様（かまどの神）を休ませるため、火を使わずに食べられる保存食を作る」という風習から。また各料理に縁起の良い意味が込められており（黒豆＝勤勉、数の子＝子孫繁栄など）、新年の祈りを表している。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-level hard">むずかしい</span><span class="quiz-season">春</span></div>
+    <div class="quiz-question">「花見（はなみ）」はもともと桜を見る行事ではなかった。では何の花を見ていた？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>奈良時代の貴族が好んだ花です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">梅（うめ）。奈良時代の貴族の花見は梅の花を愛でる行事だった。平安時代になって桜が貴族に好まれるようになり、花見といえば桜を見る行事に変わっていった。万葉集にも梅を詠んだ歌が多数収められている。</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    10問おつかれさまでした！<br>
+    <a href="#">定番なぞなぞへ</a> &nbsp;|&nbsp; <a href="#">数字・漢字なぞなぞへ</a> &nbsp;|&nbsp; <a href="#">ひっかけ問題へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+  btn.classList.toggle('open', !open);
+}
+</script>
+</body>
+</html>
