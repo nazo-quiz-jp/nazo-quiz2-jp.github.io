@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【定番なぞなぞ】友達に出したい！みんなで楽しむ10問</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root {
+    --bg:#f8fafe; --surface:#ffffff; --border:#dde8f8;
+    --accent:#3a78d8; --accent-light:#6098f0;
+    --text:#141828; --text-sub:#607090;
+    --hint-bg:#f0f6ff; --hint-line:#80b0f0;
+    --ans-bg:#edf5ff; --num-bg:#3a78d8; --num-text:#fff;
+    --tag-bg:#e4eefb; --tag-text:#3a78d8;
+    --easy:#4caf50; --normal:#ff9800; --hard:#f44336;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Zen Maru Gothic',sans-serif; background:var(--bg); color:var(--text); line-height:1.85; padding-bottom:80px; }
+
+/* ヘッダー */
+.site-header { background:var(–accent); padding:0 20px; display:flex; align-items:center; height:52px; }
+.site-logo { font-size:1.1em; font-weight:700; color:#fff; letter-spacing:.05em; }
+.site-sub { font-size:.75em; color:rgba(255,255,255,.7); margin-left:10px; }
+
+/* レベルタブ */
+.level-bar { background:#e8f0fb; border-bottom:1px solid var(–border); padding:0 16px; display:flex; gap:0; overflow-x:auto; }
+.level-tab { padding:10px 16px; font-size:.78em; font-weight:700; color:var(–text-sub); white-space:nowrap; border-bottom:2px solid transparent; cursor:pointer; }
+.level-tab.active { color:var(–accent); border-bottom-color:var(–accent); }
+
+.container { max-width:720px; margin:0 auto; padding:24px 16px; }
+
+/* 記事ヘッド */
+.article-head { background:var(–surface); border:1px solid var(–border); border-radius:12px; padding:22px 20px; margin-bottom:24px; }
+.article-head-title { font-size:1.4em; font-weight:700; color:var(–text); margin-bottom:8px; line-height:1.4; }
+.article-head-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.tag { background:var(–tag-bg); color:var(–tag-text); font-size:.72em; font-weight:700; padding:3px 10px; border-radius:20px; }
+.article-head-desc { font-size:.9em; color:var(–text-sub); line-height:1.8; }
+
+/* 問題カード */
+.quiz-card { background:var(–surface); border:1px solid var(–border); border-radius:12px; margin-bottom:14px; overflow:hidden; }
+
+.quiz-top { display:flex; align-items:center; gap:12px; padding:16px 18px 0; }
+.quiz-num { width:34px; height:34px; background:var(–num-bg); color:var(–num-text); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88em; font-weight:700; flex-shrink:0; }
+.quiz-level { font-size:.7em; font-weight:700; padding:2px 10px; border-radius:20px; }
+.quiz-level.easy { background:#e8f5e9; color:var(–easy); }
+.quiz-level.normal { background:#fff3e0; color:var(–normal); }
+.quiz-level.hard { background:#ffeaea; color:var(–hard); }
+
+.quiz-question { padding:10px 18px 14px 64px; font-size:1.05em; font-weight:700; color:var(–text); line-height:1.65; }
+
+.quiz-bottom { border-top:1px solid var(–border); }
+.hint-row { padding:10px 18px 10px 64px; background:var(–hint-bg); font-size:.84em; color:#4060a0; display:flex; align-items:flex-start; gap:8px; }
+.hint-badge { background:var(–hint-line); color:#fff; font-size:.7em; font-weight:700; padding:1px 8px; border-radius:10px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+.btn-row { padding:12px 18px 12px 64px; }
+.answer-btn { background:var(–accent); color:#fff; border:none; border-radius:20px; padding:8px 22px; font-size:.85em; font-weight:700; font-family:‘Zen Maru Gothic’,sans-serif; cursor:pointer; transition:background .18s; }
+.answer-btn:hover { background:var(–accent-light); }
+.answer-btn.open { background:#5cb85c; }
+.answer-box { display:none; background:var(–ans-bg); border-top:1px solid var(–border); padding:14px 18px 14px 64px; font-size:.92em; color:#2040a0; animation:slideDown .22s ease; }
+.answer-box.show { display:block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+.ans-head { font-size:.78em; font-weight:700; color:var(–accent); margin-bottom:4px; }
+.ans-body { line-height:1.75; }
+
+.footer { margin-top:40px; background:var(–surface); border:1px solid var(–border); border-radius:12px; padding:20px; text-align:center; font-size:.85em; color:var(–text-sub); line-height:2; }
+.footer a { color:var(–accent); text-decoration:none; font-weight:700; }
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞなぞ学園</div>
+  <div class="site-sub">みんなで楽しもう！</div>
+</header>
+<div class="level-bar">
+  <div class="level-tab">幼稚園</div>
+  <div class="level-tab">小学生</div>
+  <div class="level-tab active">中学生</div>
+  <div class="level-tab">高校生</div>
+  <div class="level-tab">大人</div>
+</div>
+
+<div class="container">
+  <div class="article-head">
+    <div class="article-head-title">友達に出したい！定番なぞなぞ 10問</div>
+    <div class="article-head-meta">
+      <span class="tag">定番</span><span class="tag">全10問</span><span class="tag">小学生〜大人</span>
+    </div>
+    <div class="article-head-desc">
+      声に出して出題するのが一番楽しい！友達や家族と一緒に楽しんでください。
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-level easy">かんたん</span></div>
+    <div class="quiz-question">のぼりは「のぼり」、くだりは「くだり」、ではまっすぐは？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>道路のことを考えてみよう。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「とおり（通り）」。のぼり坂・くだり坂・まっすぐ通り。道路を表す言葉の問題。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-level easy">かんたん</span></div>
+    <div class="quiz-question">読めば読むほど増えるものはなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>本や文章に関係しています。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">知識（ちしき）。本を読めば読むほど知識が増える。「読む」という行為の結果が「増える」というシンプルな問題。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">黒いスーツを着た人が赤信号で止まっていた。警察に捕まらなかったのはなぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「赤信号で止まる」は正しい行動です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">ちゃんとルールを守っているから。赤信号で止まるのは正しい行動なので、捕まる理由がない。「なぜ捕まらない？」という問いかけに「違反していないから」が答え。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">1年に4回しかない日はなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>季節を考えてみよう。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「季節の変わり目（立春・立夏・立秋・立冬）」、または「土用の丑の日」「節分」など。最もシンプルな答えは「春・夏・秋・冬」の「初日」で各1回＝年4回。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">家の中で一番旅をしている家具はなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>毎日「移動」している家具です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">時計（とけい）の針。時計は動かないが「針（はり）」が常に動いて旅を続けている。または「ルンバ（お掃除ロボット）」も現代的な答えとして正解。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">何をしても怒らない人はだれ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「怒らない」をひらがなで書いてみよう。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「おこらない人＝おこさない人」→お子さん（子どもを持つ親）？ではなく、「怒らない」→「おこらない」→「おこ（怒）ら＋ない」→「大人（おとな）」は怒らない、というひっかけ。最も広く知られる答えは「仏様（ほとけさま）」—— 慈悲深く何をされても怒らない。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">2人でやると半分になるが、1人でやると2倍になるものはなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「分ける」ことに関係しています。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">秘密（ひみつ）。秘密は2人で共有すると「半分ずつ」持つことになり、1人で抱えると「重さ（負担）が2倍」になる。感覚的なひらめき問題。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">世界で一番大きな部屋はなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「部屋」の言葉の意味を広くとらえてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「改善の余地（よち）」。「余地＝room（部屋・余地）」という英語の二重の意味を使ったなぞなぞ。または「キノコ（mushroom）」→「mush＋room」の「room（部屋）」など。日本語では「よちよち歩き（余地）」も関連する。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">お金持ちも貧乏人も持っているのに、お金では買えないものはなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>生まれながらに持っているものです。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">時間（じかん）。誰でも1日24時間を持っており、お金では時間を「増やす」ことはできない。または「命（いのち）」「年齢（ねんれい）」も正解。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">昨日より今日が「重い」ものはなーんだ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>毎日少しずつ増えていくものです。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">日記（にっき）・ノート・アルバムなど、毎日書き続けることで内容が増えていくもの。または「体重（たいじゅう）」も現実的な答えとして正解。「成長」という抽象的な答えも可。</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    10問おつかれさまでした！<br>
+    <a href="#">動物なぞなぞへ</a> &nbsp;|&nbsp; <a href="#">ひっかけ問題へ</a> &nbsp;|&nbsp; <a href="#">難問チャレンジへ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+  btn.classList.toggle('open', !open);
+}
+</script>
+</body>
+</html>
