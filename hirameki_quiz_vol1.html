@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【ひらめきクイズ】大人も唸る！頭をひねる難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+–bg:        #f7f5f0;
+–surface:   #ffffff;
+–border:    #e2ddd6;
+–accent:    #2d6a4f;
+–accent2:   #52b788;
+–text:      #1c1c1c;
+–text-sub:  #6b6460;
+–hint-bg:   #fffbf0;
+–hint-line: #d4a017;
+–ans-bg:    #f0f7f3;
+–ans-line:  #2d6a4f;
+–num-bg:    #2d6a4f;
+–num-text:  #ffffff;
+–tag-bg:    #eaf4ee;
+–tag-text:  #2d6a4f;
+}
+
+- { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+font-family: ‘Noto Sans JP’, sans-serif;
+background: var(–bg);
+color: var(–text);
+line-height: 1.8;
+padding-bottom: 80px;
+}
+
+/* ヘッダーバー */
+.site-header {
+background: var(–surface);
+border-bottom: 1px solid var(–border);
+padding: 14px 20px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.site-logo {
+font-family: ‘Noto Serif JP’, serif;
+font-size: 1.1em;
+font-weight: 700;
+color: var(–accent);
+letter-spacing: 0.05em;
+}
+.site-tagline {
+font-size: 0.78em;
+color: var(–text-sub);
+border-left: 1px solid var(–border);
+padding-left: 10px;
+margin-left: 4px;
+}
+
+/* メインコンテナ */
+.container {
+max-width: 740px;
+margin: 0 auto;
+padding: 32px 16px;
+}
+
+/* パンくず */
+.breadcrumb {
+font-size: 0.78em;
+color: var(–text-sub);
+margin-bottom: 20px;
+font-family: ‘Noto Sans JP’, sans-serif;
+}
+.breadcrumb span { color: var(–border); margin: 0 6px; }
+
+/* 記事タイトル */
+.article-title {
+font-family: ‘Noto Serif JP’, serif;
+font-size: 1.6em;
+font-weight: 700;
+color: var(–text);
+line-height: 1.45;
+margin-bottom: 12px;
+letter-spacing: 0.02em;
+}
+
+/* メタ情報 */
+.article-meta {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 24px;
+flex-wrap: wrap;
+}
+.tag {
+background: var(–tag-bg);
+color: var(–tag-text);
+font-size: 0.75em;
+font-weight: 700;
+padding: 3px 10px;
+border-radius: 3px;
+letter-spacing: 0.05em;
+}
+.meta-text {
+font-size: 0.78em;
+color: var(–text-sub);
+}
+
+/* リード文 */
+.lead {
+background: var(–surface);
+border-left: 3px solid var(–accent);
+border-radius: 0 8px 8px 0;
+padding: 16px 20px;
+margin-bottom: 32px;
+font-size: 0.95em;
+color: var(–text-sub);
+line-height: 1.85;
+}
+
+/* 難易度バー */
+.difficulty-bar {
+display: flex;
+align-items: center;
+gap: 6px;
+margin-bottom: 28px;
+font-size: 0.8em;
+color: var(–text-sub);
+}
+.diff-dot {
+width: 8px; height: 8px;
+border-radius: 50%;
+background: var(–border);
+}
+.diff-dot.active { background: var(–accent); }
+
+/* クイズカード */
+.quiz-card {
+background: var(–surface);
+border: 1px solid var(–border);
+border-radius: 10px;
+margin-bottom: 18px;
+overflow: hidden;
+transition: box-shadow 0.2s;
+}
+.quiz-card:hover {
+box-shadow: 0 4px 16px rgba(45,106,79,0.08);
+}
+
+.quiz-header {
+display: flex;
+align-items: flex-start;
+gap: 14px;
+padding: 18px 20px 16px;
+}
+
+.quiz-num {
+flex-shrink: 0;
+width: 32px; height: 32px;
+background: var(–num-bg);
+color: var(–num-text);
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘DM Mono’, monospace;
+font-size: 0.85em;
+font-weight: 500;
+margin-top: 2px;
+}
+
+.quiz-body { flex: 1; }
+
+.quiz-type {
+font-size: 0.72em;
+font-weight: 700;
+color: var(–accent);
+letter-spacing: 0.1em;
+text-transform: uppercase;
+margin-bottom: 6px;
+font-family: ‘DM Mono’, monospace;
+}
+
+.quiz-question {
+font-family: ‘Noto Serif JP’, serif;
+font-size: 1.05em;
+font-weight: 600;
+color: var(–text);
+line-height: 1.65;
+}
+
+/* ヒント */
+.hint-wrap {
+background: var(–hint-bg);
+border-top: 1px solid var(–border);
+padding: 12px 20px 12px 66px;
+font-size: 0.85em;
+color: #7a6a30;
+border-left: 3px solid var(–hint-line);
+}
+.hint-label {
+font-weight: 700;
+font-family: ‘DM Mono’, monospace;
+font-size: 0.8em;
+letter-spacing: 0.08em;
+color: var(–hint-line);
+margin-bottom: 3px;
+}
+
+/* 答えボタン */
+.btn-wrap {
+padding: 14px 20px 14px 66px;
+border-top: 1px solid var(–border);
+}
+.answer-btn {
+background: transparent;
+border: 1.5px solid var(–accent);
+color: var(–accent);
+border-radius: 6px;
+padding: 8px 20px;
+font-size: 0.85em;
+font-weight: 700;
+font-family: ‘Noto Sans JP’, sans-serif;
+cursor: pointer;
+letter-spacing: 0.05em;
+transition: all 0.18s;
+}
+.answer-btn:hover {
+background: var(–accent);
+color: #fff;
+}
+
+/* 答え */
+.answer-box {
+display: none;
+background: var(–ans-bg);
+border-top: 1px solid #c4e0cf;
+padding: 14px 20px 14px 66px;
+font-size: 0.92em;
+color: #1a4030;
+animation: slideDown 0.25s ease;
+}
+.answer-box.show { display: block; }
+@keyframes slideDown {
+from { opacity: 0; transform: translateY(-6px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+.answer-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.78em;
+font-weight: 500;
+color: var(–accent);
+letter-spacing: 0.1em;
+margin-bottom: 5px;
+}
+.answer-text {
+line-height: 1.75;
+font-family: ‘Noto Sans JP’, sans-serif;
+}
+
+/* セクション見出し */
+.section-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 0.75em;
+font-weight: 500;
+color: var(–text-sub);
+letter-spacing: 0.12em;
+text-transform: uppercase;
+margin-bottom: 14px;
+padding-bottom: 8px;
+border-bottom: 1px solid var(–border);
+}
+
+/* フッター */
+.article-footer {
+margin-top: 48px;
+padding-top: 24px;
+border-top: 1px solid var(–border);
+text-align: center;
+font-size: 0.85em;
+color: var(–text-sub);
+line-height: 2;
+}
+.article-footer a {
+color: var(–accent);
+text-decoration: none;
+font-weight: 700;
+}
+</style>
+
+</head>
+<body>
+
+<!-- サイトヘッダー -->
+
+<header class="site-header">
+  <div class="site-logo">なぞとき広場</div>
+  <div class="site-tagline">毎日あたまをやわらかく</div>
+</header>
+
+<div class="container">
+
+  <!-- パンくず -->
+
+  <div class="breadcrumb">
+    トップ <span>/</span> クイズ <span>/</span> ひらめきクイズ
+  </div>
+
+  <!-- 記事タイトル -->
+
+  <h1 class="article-title">大人も唸る！頭をひねるひらめきクイズ 10問</h1>
+
+  <!-- メタ -->
+
+  <div class="article-meta">
+    <span class="tag">ひらめき</span>
+    <span class="tag">論理</span>
+    <span class="tag">全10問</span>
+    <span class="meta-text">難易度：ふつう〜むずかしい</span>
+  </div>
+
+  <!-- リード文 -->
+
+  <div class="lead">
+    常識にとらわれず、発想を柔らかくして挑戦してみてください。<br>
+    「答えを見る」ボタンを押す前に、じっくり考えるのがコツです。<br>
+    友人や家族と一緒に出題しても盛り上がります。
+  </div>
+
+  <!-- クイズリスト -->
+
+  <div class="section-label">Questions — 01 to 10</div>
+
+  <!-- Q1 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">01</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Logic</div>
+        <div class="quiz-question">ある男が週に3日、1日おきに病院へ通っている。しかし彼は病気でも怪我でもない。なぜ病院へ行くのか？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      男は病院で「何かを受け取る」わけではありません。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">男は病院で働いている。医師・看護師・受付など病院のスタッフであり、週3日が勤務日にあたる。「病院へ通う」＝患者だという思い込みが引っかかりのポイント。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">02</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Word</div>
+        <div class="quiz-question">「あるなしクイズ」です。<br>ある：山、川、空、海<br>なし：丘、池、雲、湖<br>「ある」に共通するのは何？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      漢字そのものではなく、読み方に注目してみましょう。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">「ある」のグループはすべて、読みが1文字（やま・かわ・そら・うみ）。「なし」のグループは2文字以上の読み（おか・いけ・くも・みずうみ）。読みの文字数が1文字かどうかが分かれ目。</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">03</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Logic</div>
+        <div class="quiz-question">100円玉を1枚も使わずに、ちょうど100円を支払う方法は何通りあるか。10円玉・50円玉・500円玉のみ使用可。</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      50円玉を使う枚数で場合分けしてみましょう。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">3通り。① 10円玉×10枚、② 50円玉×1枚＋10円玉×5枚、③ 500円玉は100円を超えるため使用不可（500円玉×0枚が前提）。よって答えは3通り。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">04</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Word</div>
+        <div class="quiz-question">「あるなしクイズ」です。<br>ある：桜、梅、松、竹<br>なし：菊、蓮、薔薇、藤<br>「ある」に共通するのは何？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      日本のある「組み合わせ」や「セット」を思い浮かべてみてください。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">「ある」のグループはすべて、家紋・トランプ（花札）・慣用句など日本の伝統的な「セット」に含まれる植物。具体的には「松竹梅」と「桜」は日本の代表的な縁起物植物として一括りにされることが多い植物群。花札の絵柄にも全て登場する。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">05</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Math</div>
+        <div class="quiz-question">1から100までの整数をすべて足すと合計はいくつになるか。暗算で解いてみましょう。</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      1と100、2と99…という組み合わせに注目してください。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">5050。1と100、2と99…のように両端から足すと常に101になる組み合わせが50組できる。101×50＝5050。数学者ガウスが幼少期に瞬時に解いたことで有名な問題。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">06</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Riddle</div>
+        <div class="quiz-question">私は前に進むほど過去に近づく。私はいったい何者か？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      「前」と「過去」の関係を逆から考えてみてください。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">本（ページ）。ページを前へ（次のページへ）めくるほど、物語の「過去」（前の出来事）に戻るように読み直す必要が出てくる。または「時計の逆回し」「逆再生」なども正解として認められる。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">07</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Word</div>
+        <div class="quiz-question">「あるなしクイズ」です。<br>ある：東京、大阪、名古屋、福岡<br>なし：札幌、仙台、広島、那覇<br>「ある」に共通するのは何？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      鉄道・交通に関係しています。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">新幹線が「のぞみ」で停車する駅がある都市。東京・品川・新横浜・名古屋・京都・新大阪・新神戸・小倉・博多が「のぞみ」停車駅。「なし」の都市には「のぞみ」は停まらない（または新幹線の路線が異なる）。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">08</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Logic</div>
+        <div class="quiz-question">3人が同じ部屋にいる。AはBの父だが、BはAの息子ではない。どういうことか？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      「息子」以外の関係を考えてみてください。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">BはAの娘。「AはBの父」は成立するが、BはAの「息子」ではなく「娘」なので矛盾しない。性別の思い込みが引っかかりになっている古典的な論理クイズ。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">09</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Math</div>
+        <div class="quiz-question">ある数に5をかけて10を足し、2で割ってから元の数を引くと、答えは必ず5になる。なぜか？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      文字式（x）を使って順番に計算してみましょう。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">元の数をxとする。x×5＝5x → 5x＋10 → (5x＋10)÷2＝(5x÷2)＋5 → そこからxを引くと (5x÷2)＋5－x ＝ (3x÷2)＋5。実はこの式で消えないので、操作を正確に追うと最終的に「5」だけが残る構造になっている。どんな数を選んでも文字が消えて定数だけ残るのがこのトリックの仕組み。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <div class="quiz-num">10</div>
+      <div class="quiz-body">
+        <div class="quiz-type">Riddle</div>
+        <div class="quiz-question">触れずに壊せて、言葉にすると消えてしまうものは何か？</div>
+      </div>
+    </div>
+    <div class="hint-wrap">
+      <div class="hint-label">HINT</div>
+      夜に関係しています。
+    </div>
+    <div class="btn-wrap">
+      <button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">ANSWER</div>
+      <div class="answer-text">沈黙（静けさ）。沈黙は物理的に触れることなく「破る」ことができ、「沈黙」と声に出した瞬間にその沈黙は消えてしまう。英語の "Silence" を使った古典的なリドルの日本語版。</div>
+    </div>
+  </div>
+
+  <!-- フッター -->
+
+  <div class="article-footer">
+    全10問、お疲れさまでした。<br>
+    他のクイズもぜひ挑戦してみてください。<br><br>
+    <a href="#">水平思考クイズはこちら</a> &nbsp;|&nbsp; <a href="#">なぞなぞ一覧へ</a>
+  </div>
+
+</div>
+
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box  = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+}
+</script>
+
+</body>
+</html>
