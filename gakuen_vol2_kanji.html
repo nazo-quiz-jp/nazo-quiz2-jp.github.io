@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【数字・漢字なぞなぞ】頭をひねる！知識系10問</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root {
+    --bg:#fdf8f0; --surface:#ffffff; --border:#eddcc8;
+    --accent:#c87820; --accent-light:#e89840;
+    --text:#201408; --text-sub:#806040;
+    --hint-bg:#fffbf4; --hint-line:#e8a840;
+    --ans-bg:#fef6e8; --num-bg:#c87820; --num-text:#fff;
+    --tag-bg:#faecd8; --tag-text:#c87820;
+    --easy:#4caf50; --normal:#ff9800; --hard:#f44336;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Zen Maru Gothic',sans-serif; background:var(--bg); color:var(--text); line-height:1.85; padding-bottom:80px; }
+  .site-header { background:var(--accent); padding:0 20px; display:flex; align-items:center; height:52px; }
+  .site-logo { font-size:1.1em; font-weight:700; color:#fff; letter-spacing:.05em; }
+  .site-sub { font-size:.75em; color:rgba(255,255,255,.7); margin-left:10px; }
+  .level-bar { background:#f8ede0; border-bottom:1px solid var(--border); padding:0 16px; display:flex; gap:0; overflow-x:auto; }
+  .level-tab { padding:10px 16px; font-size:.78em; font-weight:700; color:var(--text-sub); white-space:nowrap; border-bottom:2px solid transparent; cursor:pointer; }
+  .level-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+  .container { max-width:720px; margin:0 auto; padding:24px 16px; }
+  .article-head { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:22px 20px; margin-bottom:24px; }
+  .article-head-title { font-size:1.4em; font-weight:700; color:var(--text); margin-bottom:8px; line-height:1.4; }
+  .article-head-meta { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .tag { background:var(--tag-bg); color:var(--tag-text); font-size:.72em; font-weight:700; padding:3px 10px; border-radius:20px; }
+  .article-head-desc { font-size:.9em; color:var(--text-sub); line-height:1.8; }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; margin-bottom:14px; overflow:hidden; }
+  .quiz-top { display:flex; align-items:center; gap:12px; padding:16px 18px 0; }
+  .quiz-num { width:34px; height:34px; background:var(--num-bg); color:var(--num-text); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.88em; font-weight:700; flex-shrink:0; }
+  .quiz-level { font-size:.7em; font-weight:700; padding:2px 10px; border-radius:20px; }
+  .quiz-level.easy { background:#e8f5e9; color:var(--easy); }
+  .quiz-level.normal { background:#fff3e0; color:var(--normal); }
+  .quiz-level.hard { background:#ffeaea; color:var(--hard); }
+  .quiz-question { padding:10px 18px 14px 64px; font-size:1.05em; font-weight:700; color:var(--text); line-height:1.65; }
+  .quiz-bottom { border-top:1px solid var(--border); }
+  .hint-row { padding:10px 18px 10px 64px; background:var(--hint-bg); font-size:.84em; color:#806020; display:flex; align-items:flex-start; gap:8px; }
+  .hint-badge { background:var(--hint-line); color:#fff; font-size:.7em; font-weight:700; padding:1px 8px; border-radius:10px; white-space:nowrap; margin-top:2px; flex-shrink:0; }
+  .btn-row { padding:12px 18px 12px 64px; }
+  .answer-btn { background:var(--accent); color:#fff; border:none; border-radius:20px; padding:8px 22px; font-size:.85em; font-weight:700; font-family:'Zen Maru Gothic',sans-serif; cursor:pointer; transition:background .18s; }
+  .answer-btn:hover { background:var(--accent-light); }
+  .answer-btn.open { background:#5cb85c; }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid var(--border); padding:14px 18px 14px 64px; font-size:.92em; color:#602808; animation:slideDown .22s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-5px)} to{opacity:1;transform:translateY(0)} }
+  .ans-head { font-size:.78em; font-weight:700; color:var(--accent); margin-bottom:4px; }
+  .ans-body { line-height:1.75; }
+  .footer { margin-top:40px; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; text-align:center; font-size:.85em; color:var(--text-sub); line-height:2; }
+  .footer a { color:var(--accent); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞなぞ学園</div>
+  <div class="site-sub">みんなで楽しもう！</div>
+</header>
+<div class="level-bar">
+  <div class="level-tab">幼稚園</div>
+  <div class="level-tab">小学生</div>
+  <div class="level-tab">中学生</div>
+  <div class="level-tab active">高校生</div>
+  <div class="level-tab">大人</div>
+</div>
+<div class="container">
+  <div class="article-head">
+    <div class="article-head-title">数字・漢字なぞなぞ — 頭をひねる！知識系 10問</div>
+    <div class="article-head-meta">
+      <span class="tag">数字</span><span class="tag">漢字</span><span class="tag">全10問</span><span class="tag">中学生〜大人</span>
+    </div>
+    <div class="article-head-desc">数字や漢字の知識を活かして解くなぞなぞです。答えがわかった瞬間スッキリする良問ばかり！</div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-level easy">かんたん</span></div>
+    <div class="quiz-question">漢字の「木」が2つで「林」、3つで「森」。では「山」が3つだと何？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「山」を3つ組み合わせた漢字が存在します。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「品（しな）」ではなく、「山」×3＝「森（もり）」のように組み合わせた漢字は「磊（らい）」「晶（しょう）」など。山を3つ重ねた漢字は「㠝（さん）」や「嵩（かさ）」に近いが、一般的な答えは「山が3つ＝」という一般的な漢字はないため「山が2つ＝出（いずる）」という知識問題になる。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-level easy">かんたん</span></div>
+    <div class="quiz-question">1日は24時間、1時間は60分、1分は60秒。では「1秒」は何ミリ秒？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「ミリ」は1000分の1を意味します。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">1000ミリ秒。ミリ（milli）は1000分の1を意味する接頭辞なので、1秒＝1000ミリ秒。「ミリ秒」という単位の意味を知っているかどうかが鍵。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">「田」という漢字に「力」を足すと何になる？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「田」の右に「力」を足してみてください。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「男（おとこ）」。田（た）＋力（ちから）＝男（おとこ）。「田んぼで力を使う人＝男」という漢字の成り立ちから来ている。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">「1＋1＝11」が成り立つ場面はどこ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>数字を「文字」として見てみましょう。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">数字の「1」と「1」を文字として並べると「11（十一）」になる。計算ではなく文字列の結合（concatenation）として見ると1と1を並べると「11」。プログラミングや言葉遊びの発想。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-level normal">ふつう</span></div>
+    <div class="quiz-question">漢字で「上」の下に「下」を書くと何になる？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>そのまま組み合わせた漢字を考えてみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「卡（かーど）」または「ト（と）」。上と下の組み合わせでできる漢字として有名な答えは、上下を重ねると「キャラ」「ト」に見える形になる遊び。正確な一字は「卡」（中国語でカードを意味する字）。日常的な答えとしては「上下（じょうげ）という言葉ができる」が正解。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">2の10乗はいくつ？（暗算で！）</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>2→4→8→16と順番に倍にしていけばOK。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">1024。2¹＝2、2²＝4、2³＝8、2⁴＝16、2⁵＝32、2⁶＝64、2⁷＝128、2⁸＝256、2⁹＝512、2¹⁰＝1024。コンピュータの世界では「1キロ＝1024」として使われる重要な数字。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">「日・月・火・水・木・金・土」を全部合わせると何週間分？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>これは単純な計算問題です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">1週間。日曜〜土曜の7曜日がちょうど1週間分。「全部合わせると」という言葉に惑わされるが、7日間＝1週間というシンプルな答え。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">「森」という字から「木」を1本取ると何になる？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>森は「木」が3本集まった漢字です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「林（はやし）」。森（木×3）から木を1本取ると林（木×2）になる。漢字の構成要素を分解するシンプルな問題。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">「一石二鳥」を数字で表すと？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>漢字の「数字」部分だけを取り出してみて。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">1と2。「一（1）石・二（2）鳥」の数字部分を取り出すと「1」と「2」。英語では "killing two birds with one stone"（1つの石で2羽の鳥を）という表現。数と意味の両方を楽しむ問題。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-level hard">むずかしい</span></div>
+    <div class="quiz-question">世界で最も使われている数字はどれ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>電話番号・住所・価格など、あらゆる数字の中で。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">こたえ</div><div class="ans-body">「1」（ベンフォードの法則）。自然界に存在する数字データの先頭に最も多く現れる数字は「1」。これは「ベンフォードの法則」と呼ばれる統計学的現象。財務不正検査にも使われる。</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    10問おつかれさまでした！<br>
+    <a href="#">定番なぞなぞへ</a> &nbsp;|&nbsp; <a href="#">ひっかけ問題へ</a> &nbsp;|&nbsp; <a href="#">難問チャレンジへ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+  btn.classList.toggle('open', !open);
+}
+</script>
+</body>
+</html>
