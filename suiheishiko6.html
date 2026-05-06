@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>【水平思考クイズ第6弾】紅葉の季節に挑む！秋色の難問10選🍂</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+  :root{--bg:#fdf6ee;--surface:#fff;--border:#e8d0b0;--accent:#c07820;--accent-light:#e09030;--text:#281408;--text-sub:#786040;--hint-bg:#fdf0e0;--hint-line:#e0a040;--ans-bg:#fdf0e0;--num-bg:#c07820;--num-text:#fff;--tag-bg:#f8e8d0;--tag-text:#c07820;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.75);margin-left:10px;}
+  .level-bar{background:#f8e8d0;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:center;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;flex-shrink:0;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#f8e8d0;color:#c07820;}
+  .quiz-question{padding:10px 18px 14px 64px;font-size:1.05em;font-weight:700;color:var(--text);line-height:1.65;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#806020;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;transition:background .18s;}
+  .answer-btn:hover{background:var(--accent-light);}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#603010;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.75;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style></head>
+
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab active">むずかしい</div><div class="level-tab">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko1.html" class="nav-link">第1弾</a><a href="suiheishiko2.html" class="nav-link">第2弾</a><a href="suiheishiko3.html" class="nav-link">第3弾</a><a href="suiheishiko4.html" class="nav-link">第4弾🌸</a><a href="suiheishiko5.html" class="nav-link">第5弾👻</a><a href="suiheishiko6.html" class="nav-link current">第6弾🍂</a><a href="suiheishiko7.html" class="nav-link">第7弾❄️</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第6弾】紅葉の季節に挑む！秋色の難問10選🍂</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">秋テーマ</span><span class="tag">全10問</span></div>
+    <div class="article-head-desc">秋にまつわるヒントが隠されたオリジナル問題です。「答えを見る」ボタンを押す前にじっくり考えてみてください！</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">ある男が紅葉の山道を歩いていると、道端に財布が落ちていた。中には現金が入っていたが、男は警察にも届けず、お金も使わなかった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>財布の中に「お金以外」のものがありました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">財布の中に「このお金はお地蔵様へのお供えです。持ち去る方には祟りがあります」という紙が入っていた。男はその財布が近くのお地蔵様に供えられたものだと気づき、元の場所に戻した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">秋になると、あるお婆さんは毎年決まって近所の子どもたちから「ありがとう」と言われる。お婆さんは子どもたちに何もしていないのに。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>お婆さんの「家」が関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">お婆さんの家の庭に大きな栗の木があり、秋になると実が道路側にも落ちてくる。子どもたちが毎年その栗を拾わせてもらっており、お礼を言いに来ていた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">ある女性は「秋になると毎年必ず体重が増える」と悩んでいた。しかし医師に相談すると「それは健康な証拠です」と言われた。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>秋に体重が増えるのは、ある「動物的本能」かもしれません。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は毎年秋に妊娠しており、体重増加は妊娠によるものだった。3人の子どもが全員秋生まれで、毎年秋になると妊娠中期〜後期を迎えていたため体重が増えていた。医師は「健全な妊娠経過の証拠」と説明した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">秋の運動会で、ある生徒だけが全競技で1位を取り続けた。しかし表彰式で、その生徒は一つも賞をもらえなかった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>その生徒の「立場」を考えてみてください。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">その生徒は運動会の「審判・記録係」として参加していた特別支援の生徒で、競技への参加は記録のためのデモンストレーションだった。正式な競技参加者ではなかったため賞の対象外だった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">ある男が「今年の秋は去年より短かった」と言った。カレンダーでは同じ3ヶ月間なのに、なぜそう感じたのか？そして周囲の人々もみんな同意した。</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>気象条件が関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">その年は残暑が長引いて夏が10月上旬まで続き、紅葉シーズンが例年より3週間以上遅れた。さらに冬の訪れが早く、紅葉を楽しめた期間が実質2〜3週間しかなかった。「秋らしい秋」が短く感じられた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">秋の夜、男は「虫の声が全く聞こえない」ことに気づいて、すぐに家の中に逃げ込んだ。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>虫が鳴かない理由は「天気」と関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は長年の経験から「秋に虫の声がぴたりと止む時は嵐の前兆」だと知っていた。気圧の急激な低下や湿度の変化を虫が察知して鳴き止む現象で、実際に数時間後に激しい雷雨が来た。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">ある画家が秋に描いた絵は、春に描いた同じ風景の絵より高値で売れた。絵の技術的な差はなかった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>その風景には「有名な場所」という付加価値がありました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">画家が描いたのは有名な紅葉スポットで、秋の紅葉シーズンにしか見られない景色だった。秋の絵の方が希少性と季節限定の情緒から価値が高いと判断されて高値がついた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">秋のある日、女性が公園で落ち葉を踏みながら歩いていた。しかし途中から一枚も踏まなくなった。理由を聞くと「見えなくなったから」と答えた。なぜ見えなくなったのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>落ち葉の「色」が関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">公園の地面がレンガ造りで、赤茶色のレンガと同じ色の枯れ葉が積もったため、どこに落ち葉があるか判別できなくなった。「見えなくなった」とは落ち葉が地面と同化して見分けがつかなくなったという意味だった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">秋の文化祭で、ある生徒の作品だけが展示されなかった。作品の出来は一番よかったのに。先生が「これは展示できない」と言った。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>作品の「素材」に問題がありました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">生徒は紅葉した本物の葉を何百枚も使った立体アート作品を作ったが、展示中に葉が乾燥・劣化して大量の落ち葉が散らかることが予想された。また生きた植物素材を使った展示には学校の衛生管理上の規定があり展示不可と判断された。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">🍂秋問題</span></div><div class="quiz-question">ある老人が「秋になるたびに若返る気がする」と言った。医学的な根拠もなく、気のせいでもなく、本当に若々しくなっていた。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>老人の「趣味」が関係しています。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">老人は夏の暑さで持病が悪化して寝込みがちになるが、秋になると気温が落ち着いて体調が回復し、毎年楽しみにしているキノコ狩りや山歩きを再開できる。活動量が増えて筋力・血色が回復するため、周囲から見ても実際に若々しくなっていた。</div></div></div></div>
+
+  <div class="footer"><a href="suiheishiko5.html">第5弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko7.html">第7弾へ</a></div>
+</div>
+<script>function toggleAnswer(btn){const box=btn.closest('.quiz-card').querySelector('.answer-box');const open=box.classList.contains('show');box.classList.toggle('show',!open);btn.textContent=open?'答えを見る':'答えを隠す';btn.classList.toggle('open',!open);}</script>
+</body></html>
