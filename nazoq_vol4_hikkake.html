@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【ひっかけなぞなぞ】騙されるな！意地悪問題10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap');
+  :root {
+    --bg:#f5f2f8; --surface:#ffffff; --border:#ddd4e8;
+    --accent:#6040a0; --accent2:#9060d0;
+    --text:#180e28; --text-sub:#685880;
+    --hint-bg:#f9f6fc; --hint-line:#a870e0;
+    --ans-bg:#f2eef8; --ans-line:#6040a0;
+    --num-bg:#6040a0; --num-text:#fff;
+    --tag-bg:#ede4f8; --tag-text:#6040a0;
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.8; padding-bottom:80px; }
+  .site-header { background:var(--surface); border-bottom:1px solid var(--border); padding:14px 20px; display:flex; align-items:center; gap:10px; }
+  .site-logo { font-family:'Noto Serif JP',serif; font-size:1.1em; font-weight:700; color:var(--accent); letter-spacing:.05em; }
+  .site-tagline { font-size:.78em; color:var(--text-sub); border-left:1px solid var(--border); padding-left:10px; margin-left:4px; }
+  .container { max-width:740px; margin:0 auto; padding:32px 16px; }
+  .breadcrumb { font-size:.78em; color:var(--text-sub); margin-bottom:20px; }
+  .breadcrumb span { color:var(--border); margin:0 6px; }
+  .article-title { font-family:'Noto Serif JP',serif; font-size:1.6em; font-weight:700; line-height:1.45; margin-bottom:12px; }
+  .article-meta { display:flex; align-items:center; gap:12px; margin-bottom:24px; flex-wrap:wrap; }
+  .tag { background:var(--tag-bg); color:var(--tag-text); font-size:.75em; font-weight:700; padding:3px 10px; border-radius:3px; letter-spacing:.05em; }
+  .meta-text { font-size:.78em; color:var(--text-sub); }
+  .lead { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:16px 20px; margin-bottom:32px; font-size:.95em; color:var(--text-sub); line-height:1.85; }
+  .section-label { font-family:'DM Mono',monospace; font-size:.75em; font-weight:500; color:var(--text-sub); letter-spacing:.12em; text-transform:uppercase; margin-bottom:14px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+  .quiz-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; margin-bottom:18px; overflow:hidden; transition:box-shadow .2s; }
+  .quiz-card:hover { box-shadow:0 4px 16px rgba(96,64,160,.08); }
+  .quiz-header { display:flex; align-items:flex-start; gap:14px; padding:18px 20px 16px; }
+  .quiz-num { flex-shrink:0; width:32px; height:32px; background:var(--num-bg); color:var(--num-text); border-radius:6px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:.85em; font-weight:500; margin-top:2px; }
+  .quiz-body { flex:1; }
+  .quiz-type { font-size:.72em; font-weight:700; color:var(--accent); letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px; font-family:'DM Mono',monospace; }
+  .diff-row { display:flex; gap:3px; margin-bottom:8px; }
+  .diff-pip { width:10px; height:4px; border-radius:2px; background:var(--border); }
+  .diff-pip.on { background:var(--accent); }
+  .quiz-question { font-family:'Noto Serif JP',serif; font-size:1.05em; font-weight:600; color:var(--text); line-height:1.65; }
+  .hint-wrap { background:var(--hint-bg); border-top:1px solid var(--border); padding:12px 20px 12px 66px; font-size:.85em; color:#604880; border-left:3px solid var(--hint-line); }
+  .hint-label { font-weight:700; font-family:'DM Mono',monospace; font-size:.8em; letter-spacing:.08em; color:var(--hint-line); margin-bottom:3px; }
+  .btn-wrap { padding:14px 20px 14px 66px; border-top:1px solid var(--border); }
+  .answer-btn { background:transparent; border:1.5px solid var(--accent); color:var(--accent); border-radius:6px; padding:8px 20px; font-size:.85em; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer; letter-spacing:.05em; transition:all .18s; }
+  .answer-btn:hover { background:var(--accent); color:#fff; }
+  .answer-box { display:none; background:var(--ans-bg); border-top:1px solid #c8b8e8; padding:14px 20px 14px 66px; font-size:.92em; color:#30184a; animation:slideDown .25s ease; }
+  .answer-box.show { display:block; }
+  @keyframes slideDown { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+  .answer-label { font-family:'DM Mono',monospace; font-size:.78em; font-weight:500; color:var(--accent); letter-spacing:.1em; margin-bottom:5px; }
+  .answer-text { line-height:1.75; }
+  .article-footer { margin-top:48px; padding-top:24px; border-top:1px solid var(--border); text-align:center; font-size:.85em; color:var(--text-sub); line-height:2; }
+  .article-footer a { color:var(--accent); text-decoration:none; font-weight:700; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞとき広場</div>
+  <div class="site-tagline">毎日あたまをやわらかく</div>
+</header>
+<div class="container">
+  <div class="breadcrumb">トップ <span>/</span> なぞなぞ <span>/</span> ひっかけ</div>
+  <h1 class="article-title">騙されるな！ひっかけ・意地悪なぞなぞ 10問</h1>
+  <div class="article-meta">
+    <span class="tag">ひっかけ</span><span class="tag">意地悪</span><span class="tag">全10問</span>
+    <span class="meta-text">思い込みを捨てて挑もう</span>
+  </div>
+  <div class="lead">
+    「絶対これだ！」と思った答えが外れる、意地悪ひっかけなぞなぞを10問用意しました。<br>
+    考えれば考えるほど引っかかる問題ばかり。まずは直感で答えてみてください。
+  </div>
+  <div class="section-label">Questions — 01 to 10</div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">01</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">10匹の魚が水槽にいました。そのうち3匹が死にました。何匹残っていますか？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>死んだ魚は水槽から消えましたか？</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">10匹。死んだ魚も水槽の中にいる（沈んでいる）ため、水槽の中の魚の数は変わらない。「残っている」＝「生きている」と思い込むひっかけ。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">02</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">医者が「あなたはあと3ヶ月しか生きられません」と言った。患者は「嫌だ、もっと生きたい！」と叫んだ。すると医者はすぐに3ヶ月延ばしてあげた。どうやって？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「延ばす」の方法は医療以外にもあります。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">診断書（告知）の日付を3ヶ月後にした。医師は「あと3ヶ月」という宣告の起点を現在から3ヶ月後に書き直すことで、期限を形式上3ヶ月延ばした。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">03</div><div class="quiz-body">
+      <div class="quiz-type">計算ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">1＋1は？　ただし「田んぼの田」で考えてください。</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>漢字の形を思い浮かべてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「田」。「田」という漢字は「口（1）」と「口（1）」を縦横に組み合わせた形。縦に2つ並べると「日」、横に並べると「目」になり、田の字の構成要素は「一」と「一」が組み合わさっている。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">04</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">ある男が雨の中を傘もなく帽子もかぶらずに歩いた。でも髪の毛は一本も濡れなかった。なぜ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>その男の頭の上を考えてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">その男はハゲ（頭に髪の毛がない）だった。「髪の毛は一本も濡れなかった」→そもそも髪の毛が一本もなければ濡れようがない。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">05</div><div class="quiz-body">
+      <div class="quiz-type">言葉ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">「きのうのことをよく知っている」ものはなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「きのう（昨日）」という言葉そのものを考えてみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">日記（にっき）。「きのう（昨日）」のことを書いてある＝よく知っている。または「きのう（機能）」をよく知っているもの＝取扱説明書、という二重の言葉遊びも成立する。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">06</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div></div>
+      <div class="quiz-question">「おとうさん」と「おかあさん」の間にある漢字一文字はなーんだ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>文字列そのものを見てみましょう。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「と」。「おとうさん」と「おかあさん」を並べると「おとうさん　おかあさん」→間にある文字は「と」（「おとうさん」の最後の文字）と「お」（「おかあさん」の最初の文字）の間。正確には空白または「と お」の間。最もスマートな答えは「子ども（こども）」—— 父と母の間には子どもがいる、という意味。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">07</div><div class="quiz-body">
+      <div class="quiz-type">計算ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">1本100円の鉛筆が3割引になったら何円？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「3割引」の計算をゆっくり確認してみて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">70円。3割引＝3割（30%）を引く→100×0.3＝30円引き→100－30＝70円。「3割引＝30円」と間違えて答えを「30円」にしてしまうひっかけ。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">08</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">弟が生まれた瞬間、お兄ちゃんの年齢は何歳増えた？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>弟が生まれたことでお兄ちゃんは変わった？</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">0歳。弟が生まれてもお兄ちゃんの年齢は変わらない。ただし「お兄ちゃんになった」というステータスは変わった。年齢と立場を混同させるひっかけ。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">09</div><div class="quiz-body">
+      <div class="quiz-type">言葉ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip"></div></div>
+      <div class="quiz-question">「あかるい」を逆さにすると「いるかあ」。では「いるか」が住んでいる場所はどこ？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>「いるかあ」の「あ」に注目。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">「あ（海）」…ではなく「いるかあ」→「いるかあ？（いるかなあ？）」という疑問形になっている。イルカは海に住んでいるが、この問題は「いるかあ＝いるかな？」という言葉のひっかけで、「どこにいるかな？」という問いかけ自体が答え。</div></div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-header"><div class="quiz-num">10</div><div class="quiz-body">
+      <div class="quiz-type">ひっかけ</div>
+      <div class="diff-row"><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div><div class="diff-pip on"></div></div>
+      <div class="quiz-question">月曜日に生まれたコウモリは、火曜日・水曜日・木曜日・金曜日・土曜日・日曜日、ずっと眠り続けた。何日間眠った？</div>
+    </div></div>
+    <div class="hint-wrap"><div class="hint-label">HINT</div>コウモリの習性と「眠り続けた」の意味を考えて。</div>
+    <div class="btn-wrap"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+    <div class="answer-box"><div class="answer-label">ANSWER</div><div class="answer-text">6日間。火曜〜日曜の6日間。ただしコウモリは昼に眠る夜行性なので、実際には毎日眠っている。問題は「ずっと眠り続けた（起きなかった）」という設定で6日間が答えとなる。</div></div>
+  </div>
+
+  <div class="article-footer">
+    全10問、お疲れさまでした！<br>
+    <a href="#">動物なぞなぞへ</a> &nbsp;|&nbsp; <a href="#">食べ物なぞなぞへ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn) {
+  const card = btn.closest('.quiz-card');
+  const box = card.querySelector('.answer-box');
+  const open = box.classList.contains('show');
+  box.classList.toggle('show', !open);
+  btn.textContent = open ? '答えを見る' : '答えを隠す';
+}
+</script>
+</body>
+</html>
