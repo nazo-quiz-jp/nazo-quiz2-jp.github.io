@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第2弾】天才だけが解ける！？難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;letter-spacing:.05em;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:center;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;flex-shrink:0;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;}
+  .quiz-question{padding:10px 18px 14px 64px;font-size:1.05em;font-weight:700;color:var(--text);line-height:1.65;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;transition:background .18s;}
+  .answer-btn:hover{background:var(--accent-light);}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.75;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab active">むずかしい</div><div class="level-tab">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko1.html" class="nav-link">第1弾</a><a href="suiheishiko2.html" class="nav-link current">第2弾</a><a href="suiheishiko3.html" class="nav-link">第3弾</a><a href="suiheishiko4.html" class="nav-link">第4弾🌸</a><a href="suiheishiko5.html" class="nav-link">第5弾👻</a><a href="suiheishiko6.html" class="nav-link">第6弾🍂</a><a href="suiheishiko7.html" class="nav-link">第7弾❄️</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第2弾】天才だけが解ける！？難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">第2弾</span><span class="tag">全10問</span><span class="tag">難問</span></div>
+    <div class="article-head-desc">常識や思い込みを捨てて、じっくり考えてから答えを見てください。全問正解できたらあなたは天才です！</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男が砂漠の真ん中で倒れていた。周囲には何もなく、男の手には折れたマッチが1本握られていた。男はなぜ死んだのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男は一人ではありませんでした。そして「くじ引き」が行われていました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は仲間たちと砂漠で遭難し、食料が尽きた。生き残るために誰か一人が犠牲になる必要があり、マッチで「短いくじ」を引いた。男が最も短いマッチを引いてしまったため、命を失った。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある女性は毎朝、鏡の前で30分過ごす。しかし彼女は鏡に自分の顔を映していない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>鏡は「見る」以外にも使えます。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性はバイオリン奏者で、鏡を使って演奏中の自分の姿勢・弓の動きを後ろから確認していた。鏡を壁に対して斜めに置き、自分の背中側を映していたため、顔は映っていなかった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある刑事が事件現場に到着すると、部屋に4人の容疑者がいた。刑事は誰にも話を聞かず、部屋を一目見ただけで犯人を特定した。なぜわかったのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>犯人だけが「知っているはずのないこと」をしていました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">被害者は床に倒れており、死因はまだ発表されていなかった。しかし容疑者の一人だけが、被害者の口元を見てハンカチで自分の口を押さえていた。毒殺であることを知っていたのは犯人だけだったため、その行動で特定された。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は毎日同じ道を歩いて通勤している。ある日、道の途中に大きな穴が掘られているのを見つけた。男は穴を見て大喜びし、急いで上司に電話した。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男の職業が重要です。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は考古学者だった。道路工事中に掘られた穴から、古代の遺跡や遺物が露出しているのを発見した。これは大きな歴史的発見であり、興奮して上司に報告した。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は毎晩欠かさず日記をつけている。しかしその日記には、一度も「今日」という言葉が登場しない。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>男の日記の書き方に注目してください。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は日記を「翌朝」書く習慣があった。つまり昨日の出来事を「昨日」として記録するため、「今日」という表現を使う必要がなかった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある村に、雨が降るたびに必ず笑顔になるおじいさんがいた。村人たちは不思議に思っていたが、ある日その理由を知って全員が納得した。なぜ雨が嬉しいのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>おじいさんには2人の子どもがいます。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">おじいさんの息子は傘屋を営んでおり、娘は晴れの日に行列ができる屋外カフェを経営していた。晴れの日は娘の店が儲かり、雨の日は息子の店が儲かる。おじいさんはどちらの日も必ず喜べると気づき、天気に関係なく笑顔でいられた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男が高級レストランで食事をしていた。料理が運ばれてくる前に、男はシェフが今日「機嫌が悪い」ことを見抜いた。なぜわかったのか？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>料理はまだ来ていません。でも男はある「もの」を見ました。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男はメニューを受け取ったとき、メニューの文字に誤字・乱れがあることに気づいた。このレストランではシェフが毎日手書きで本日のメニューを書く習慣があり、文字の乱れからシェフの精神状態が読み取れた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は「自分は絶対に負けない」と豪語してチェスの大会に出場し、本当に一度も負けなかった。しかし優勝はできなかった。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>負けなくても勝てないことがあります。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は全試合「引き分け」だった。チェスでは引き分けがあり、一度も負けなくても勝ち点が足りなければ優勝できない。男は攻めず守り続け、全局引き分けに終わったため順位が足りなかった。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある女性が病院で「あなたは健康です」と診断された。しかし女性はその場で泣き崩れた。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>女性が病院に来た理由は、自分のためではありませんでした。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は骨髄移植のドナー候補として検査を受けていた。「健康です」という診断はドナーとして適合しないという意味だった。子どもを救えないとわかり、泣き崩れた。</div></div></div></div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">難問</span></div><div class="quiz-question">ある男は生まれてから一度も眠ったことがないと主張している。しかし医師に診てもらったところ、男は完全に正常だと診断された。なぜ？</div><div class="quiz-bottom"><div class="hint-row"><span class="hint-badge">ヒント</span>「眠る」という言葉の定義を考えてみてください。</div><div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div><div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は夜行性で昼間に休息を取っており、自分では「昼寝」と呼んでいた。夜に眠ったことは一度もないが、昼間にしっかり睡眠を取っていたため健康に問題はなかった。</div></div></div></div>
+
+  <div class="footer"><a href="suiheishiko1.html">第1弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko3.html">第3弾へ</a></div>
+</div>
+<script>function toggleAnswer(btn){const box=btn.closest('.quiz-card').querySelector('.answer-box');const open=box.classList.contains('show');box.classList.toggle('show',!open);btn.textContent=open?'答えを見る':'答えを隠す';btn.classList.toggle('open',!open);}</script>
+</body></html>
