@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ】絶対に解けない！？オリジナル難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+  :root {
+    --bg:#f8fafe;--surface:#fff;--border:#dde8f8;
+    --accent:#3a78d8;--accent-light:#6098f0;
+    --text:#141828;--text-sub:#607090;
+    --hint-bg:#f0f6ff;--hint-line:#80b0f0;
+    --ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;
+    --tag-bg:#e4eefb;--tag-text:#3a78d8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;letter-spacing:.05em;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link:hover{background:var(--accent);color:#fff;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:center;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;flex-shrink:0;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;}
+  .quiz-question{padding:10px 18px 14px 64px;font-size:1.05em;font-weight:700;color:var(--text);line-height:1.65;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;transition:background .18s;}
+  .answer-btn:hover{background:var(--accent-light);}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.75;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-logo">なぞとき広場</div>
+  <div class="site-sub">頭をやわらかく！</div>
+</header>
+<div class="level-bar">
+  <div class="level-tab">かんたん</div>
+  <div class="level-tab">ふつう</div>
+  <div class="level-tab active">むずかしい</div>
+  <div class="level-tab">超難問</div>
+</div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko1.html" class="nav-link current">第1弾</a>
+    <a href="suiheishiko2.html" class="nav-link">第2弾</a>
+    <a href="suiheishiko3.html" class="nav-link">第3弾</a>
+    <a href="suiheishiko4.html" class="nav-link">第4弾🌸</a>
+    <a href="suiheishiko5.html" class="nav-link">第5弾👻</a>
+    <a href="suiheishiko6.html" class="nav-link">第6弾🍂</a>
+    <a href="suiheishiko7.html" class="nav-link">第7弾❄️</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ】絶対に解けない！？オリジナル難問10選</div>
+    <div class="article-head-meta">
+      <span class="tag">水平思考</span><span class="tag">全10問</span><span class="tag">難問</span>
+    </div>
+    <div class="article-head-desc">「はい」か「いいえ」で答えながら真相を推理するクイズです。答えを見る前にじっくり考えてみてください！</div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある女性は毎日同じ時間に橋の上で立ち止まり、川を見つめてから家に帰る。ある日、橋の手すりが修理のために撤去された。その日を境に、女性は橋に来るのをやめた。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>女性は橋から何かを「見ている」わけではありません。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は視覚障害者で、白杖を使って歩いていた。橋の上で手すりに触れることで「ここが橋の中央だ」と確認し、安心して渡っていた。手すりがなくなったため、橋を渡る自信を失い来なくなった。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">男は「自分が死んだ日」を正確に知っていた。しかし、彼は予言者でも占い師でもなく、病気でも死にかけてもいなかった。なぜ知っていたのか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「死んだ日」は過去の話です。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は一度心停止を経験し、医師に蘇生されていた。医師から「あなたは○月○日の○時に心臓が止まりました」と告げられていたため、自分が「死んだ日時」を正確に知っていた。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある村では、理髪師が「自分では髭を剃らない人全員の髭を剃る」というルールで仕事をしている。では、理髪師自身の髭は誰が剃るのか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>どちらに当てはめても矛盾が生じます。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">これはラッセルのパラドックスと呼ばれる有名な論理的矛盾。「理髪師が自分で剃る」→ルール違反、「理髪師が剃らない」→理髪師が剃らなければならない。どちらも矛盾するため、そのような理髪師は論理的に存在できない。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある男が部屋に入ると、見知らぬ女性が泣いていた。男はその女性をまったく知らなかったが、女性が泣いている理由をすぐに理解した。なぜわかったのか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>男は特別な能力を持っているわけではありません。部屋の状況に注目。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">部屋には玉ねぎが大量に切られていた。女性は料理中に目が染みて泣いていただけ。男はそれを見て理由をすぐに理解した。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある男は毎晩、誰もいない公園のベンチに向かって話しかけている。近所の人々は彼を変人だと思っていたが、ある日その行動が多くの命を救った。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>男の職業を考えてみてください。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は救急医療のディスパッチャー（通報受付員）で、毎晩自宅で電話対応の練習をしていた。公園でベンチに向かって話すのは、実際の緊急対応をシミュレーションするトレーニング。その訓練のおかげで、本番の緊急通報で冷静に対応し、多くの命を救った。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある双子の兄弟のうち、兄は東京で生まれ、弟はロサンゼルスで生まれた。しかし二人は同じ日・同じ時刻に生まれている。これはどういうことか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>「同じ時刻」とは何を基準にした時刻でしょうか？</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">母親が飛行機で移動中に出産した。兄は東京上空（日本時間）で生まれ、弟は太平洋を渡りロサンゼルス上空（現地時間）で生まれた。「同じ時刻」とはUTC（協定世界時）での同一時刻を指しており、時差の関係でカレンダー上の日付が同じになった。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある男が美術館で絵画を見ていた。警備員が「写真撮影禁止です」と注意した。男は「私はこの絵の作者です」と答えた。しかし警備員は注意をやめなかった。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>男の言葉は嘘ではありません。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男が見ていたのは、17世紀の巨匠が描いた絵画だった。美術館の規則は所有権や著作権に関係なく、展示物保護のために来場者全員に適用されるため、警備員は注意をやめなかった。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある男は毎朝、自分の体重を量って日記に記録している。ある日、体重計が壊れて動かなくなった。男は体重を量れなかったが、その日の日記には正確な体重が書かれていた。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>体重計を使わずに体重を知る方法があります。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は宇宙飛行士で、その日は無重力の宇宙ステーション内にいた。宇宙では体重計は使えないが、専用の質量測定装置（振動周波数で質量を計る装置）を使って体重（正確には質量）を測定し、日記に記録した。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある国では、嘘をついた人は必ず赤くなり、本当のことを言った人は必ず青くなる特殊な薬が義務付けられている。ある日、男は「私は今嘘をついています」と言った。男は何色になったか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>どちらの色になっても矛盾が生じます。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">これは「嘘つきのパラドックス」の変形。赤（嘘）になると「嘘をついている」が真実になり矛盾、青（本当）になると「嘘をついている」が嘘になり矛盾。どちらにもなれないため、薬は機能せず男は無色のままだった。</div></div>
+    </div>
+  </div>
+
+  <div class="quiz-card">
+    <div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">難問</span></div>
+    <div class="quiz-question">ある探偵が密室で死んでいる男を発見した。部屋には一冊の本、溶けかけたアイスクリーム、そして開いた窓があった。探偵はすぐに「他殺だ」と断言した。なぜ？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>アイスクリームに注目してください。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">アイスクリームが「溶けかけ」ているという状態が不自然。もし男が自室でくつろいでいたなら、食べかけのアイスが溶けるほど放置するはずがない。死亡推定時刻とアイスの溶け具合から、男は突然何者かに襲われたと判断できた。</div></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    10問おつかれさまでした！<br>
+    <a href="index.html">トップページへ戻る</a> &nbsp;|&nbsp; <a href="suiheishiko2.html">第2弾へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn){
+  const box=btn.closest('.quiz-card').querySelector('.answer-box');
+  const open=box.classList.contains('show');
+  box.classList.toggle('show',!open);
+  btn.textContent=open?'答えを見る':'答えを隠す';
+  btn.classList.toggle('open',!open);
+}
+</script>
+</body>
+</html>
