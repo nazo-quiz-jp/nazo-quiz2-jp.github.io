@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第9弾】見えない手がかり…本格難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;min-width:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;white-space:nowrap;margin-top:6px;}
+  .quiz-question{padding:12px 18px 14px 64px;font-size:1em;font-weight:700;color:var(--text);line-height:1.85;white-space:pre-line;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.85;white-space:pre-line;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab">むずかしい</div><div class="level-tab active">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko8.html" class="nav-link">第8弾</a>
+    <a href="suiheishiko9.html" class="nav-link current">第9弾</a>
+    <a href="suiheishiko10.html" class="nav-link">第10弾</a>
+    <a href="suiheishiko11.html" class="nav-link">第11弾</a>
+    <a href="suiheishiko12.html" class="nav-link">第12弾</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第9弾】見えない手がかり…本格難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">手がかり</span><span class="tag">第9弾</span><span class="tag">本格難問</span></div>
+    <div class="article-head-desc">「見えないはずのもの」「無いはずの痕跡」が真実を語る本格派10問。観察力を試されます。</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、自宅マンションのポストから郵便物を取り出した瞬間、すぐに自分の部屋ではなく管理人室へ向かった。
+
+ポストには異常はなく、不審な手紙も入っていなかった。
+それなのになぜ管理人を呼びに行ったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>「あるべき郵便物」がそこにありませんでした。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は前日に、配達日指定で「速達の重要書類」が届くはずだった。
+追跡サービスでは「本日午前中に投函済み」と表示されていた。
+
+しかしポストには、それ以降に届いたであろう普通郵便だけが入っていた。
+速達は普通郵便より先に投函されているはずで、ポストには真っ先に入っているべきもの。
+
+つまり、誰かが鍵をかけずにポストを開け、特定の郵便物だけを抜き取った可能性がある。
+
+管理人と一緒に防犯カメラを確認したところ、不審な人物がポストを物色していたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、深夜の駐車場で自分の車のドアを開けようとして、ふと手を止めた。
+彼女は車に乗らず、すぐに来た道を引き返してその場を離れた。
+
+車には傷もなく、誰もおらず、駐車場も静かだった。
+それなのになぜ彼女は車に乗らなかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は車のドアハンドル付近に「ある違和感」を感じました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は車のドアハンドルに、見覚えのない細い紐や輪ゴム、ビニールの切れ端が結ばれていることに気づいた。
+
+これは「ジップタイ・ストラップ犯罪」と呼ばれる手口で、
+被害者がそれを取ろうとして手を止めた瞬間や、車に乗ろうとした瞬間を狙って犯人が背後から襲うことで知られる。
+
+夜の駐車場で女性が一人になる瞬間を、誰かがどこかで見ているかもしれない。
+彼女はその罠に気づき、車には触れずに人通りの多い場所に戻り、警察に通報した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある探偵が、依頼人の家を訪問した。
+依頼人は「最近、誰かが家に侵入している気がする」と訴えた。
+探偵は家の中を一通り見て、「確かに侵入者がいます」と断言した。
+
+ドア・窓・鍵に異常はない。
+家の中も荒らされていない。
+なぜ探偵にはわかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>探偵はトイレを確認しました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">探偵がトイレに入ると、便座が「上がっていた」。
+
+依頼人は一人暮らしの女性で、家には男性の家族や訪問者は来ていない。
+女性しか使わないトイレで便座が上がっているということは、別の男性がそのトイレを使った証拠。
+
+さらにトイレットペーパーの折り方も、依頼人の癖と違う方向に折られていた。
+
+家には侵入者がいて、留守の間にこっそり生活しているか、頻繁に出入りしている可能性が高いと判断した。
+監視カメラを設置すると、依頼人の知人が合鍵を勝手に作って侵入していたことが発覚した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、自宅で家族と夕食を食べていた。
+箸を置いた瞬間、女性は突然立ち上がり、家族を連れてマンションを飛び出して避難した。
+
+火災報知器も鳴らず、地震もない。
+家族は何が起きたのか分からなかった。
+それなのになぜ彼女はすぐに避難したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は食事中、ある「音」が聞こえないことに気づきました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は食事中、いつも下の階から聞こえてくる生活音（テレビの音や子どもの声）が、その日は全く聞こえないことに気づいた。
+
+さらに換気扇から流れてくるはずの「他の家の料理の匂い」もしなかった。
+
+このマンションでは、下の階で一酸化炭素中毒が発生しており、住人は意識を失っていた。
+女性はその「いつもある音と匂いがない」という違和感から、空気の異常か建物全体の事故を疑った。
+
+避難後すぐ消防に通報し、下の階の住人は一命を取り留めた。
+さらに調べると、共用排気ダクトの不具合で他の階にも一酸化炭素が漏れ始めていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男が、出張から自宅に帰ってきた。
+玄関で靴を脱ぎながら、彼は「妻が浮気をしている」と確信した。
+
+家の中はいつも通りで、妻も普段と変わらない様子だった。
+家具の配置も食器の数も同じだった。
+それなのになぜ彼にはわかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>玄関の「ある場所」に、いつもと違うものがありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">玄関の傘立てに、彼が見たことのない男性用の長傘があった。
+
+その日の朝、彼が出張から戻る道中は晴れていて、傘を持って訪問するような天気ではない。
+しかし数日前、彼が出張に出た日は大雨だった。
+
+つまり、その傘の持ち主は——
+雨の日に妻を訪ねてきて、晴れた日に傘を忘れて帰った人物。
+
+数日間、傘を取りに来ない=家にずっと滞在していた、または妻と頻繁に会っているために取りに帰る必要がない関係。
+
+さらに、その傘は彼の身長より高い、明らかに自分のものではないサイズだった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある刑事が空き家を捜索していた。
+捜索の途中、刑事は「最近ここに人がいた」と確信した。
+
+家の中は埃まみれで、何年も人が住んでいない様子だった。
+食べ物も水道も使われていない。
+それでもなぜ確信したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>埃の「ある特徴」が手がかりでした。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">刑事は床の埃を観察すると、ある一カ所だけ埃が薄くなっている直線的な跡があった。
+
+それは、誰かが繰り返し同じ場所を歩いた足跡の積み重ねによる、埃の摩耗だった。
+
+さらに窓際に置かれた椅子の脚の周りには埃が円形に積もっており、椅子は最近少し動かされた跡があった。
+
+つまり、誰かがこの空き家を「隠れ家」として使い、定期的に出入りしながら窓から外を監視していた。
+
+調べてみると、近隣で空き巣を繰り返していた犯人の潜伏先だったことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、家族3人で旅行先のホテルに泊まっていた。
+朝食を食べに行こうと部屋を出ようとしたとき、女性は突然「ちょっと待って」と家族を止めた。
+そして部屋に戻り、スーツケースを再度確認した。
+
+物が盗まれていたわけではなく、スーツケースもきちんと閉まっていた。
+それなのになぜ確認したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性はスーツケースに「ある仕掛け」をしていました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は出発時、スーツケースのファスナーの引き手の向きを必ず特定の方向に揃えていた。
+これは旅行慣れした人がよく使う「侵入チェック」のテクニック。
+
+朝起きて部屋を出ようとしたとき、女性は無意識にスーツケースを見て、引き手の向きが微妙に変わっていることに気づいた。
+
+つまり、自分たちが寝ている間や食事に出ている隙に、誰かがスーツケースを開けて中身を確認していた可能性がある。
+
+中を確認しても物は盗まれていなかったが、後日ホテルに苦情を入れて調査してもらうと、清掃スタッフを装った窃盗グループが出入りしていたことが発覚した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、毎日通勤に使う駅のホームで、いつものように電車を待っていた。
+電車が来る直前、男性は突然ホームから一歩下がり、電車に乗らずに駅員のところへ駆け込んだ。
+
+ホームには異常はなく、電車も通常運行だった。
+それなのになぜ電車に乗らなかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男性は電車の運転士の様子に違和感を持ちました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性は毎朝同じ電車に乗っていて、運転士の顔も無意識に覚えていた。
+その日の運転士は、運転席で頭をうつむかせ、片手で胸を押さえているように見えた。
+
+ブレーキ操作のタイミングもいつもより微妙に遅れていた。
+
+男性は元・医療従事者で、それが心臓発作の予兆である可能性に気づいた。
+すぐに駅員に「次の運転士の体調を確認してほしい」と伝えると、運転士は実際に発作を起こしかけており、緊急対応で大事故を防げた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、深夜にコンビニで買い物をしていた。
+レジで会計をしている最中、彼女は店員に「警察を呼んでください」と小声で頼んだ。
+
+店内には他の客が一人いるだけで、強盗でも揉め事でもない。
+それなのになぜ通報を頼んだのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は他の客の「足元」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">店内にいた他の客の男は、長時間商品棚の前に立ったまま、何も買わずにいた。
+さらに、彼の靴は雨で濡れていなかった。
+
+しかしその夜は土砂降りの雨で、外から店に入ってきた人は必ず靴が濡れているはず。
+
+つまり、その男は外から入ってきたのではなく、店内のどこか（バックヤードや倉庫）に隠れていた可能性が高い。
+さらに男の手はジャケットのポケットの中で何かを握りしめており、不自然な動きが見えた。
+
+女性はそれが店舗内に潜む強盗の準備行動だと判断し、店員に静かに通報を頼んだ。
+警察が駆けつけると、本当に犯行寸前だったことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、新しく引っ越したアパートで初めての夜を迎えた。
+ベッドに入って数分後、彼は突然飛び起きて、その夜のうちにホテルに移動した。
+
+部屋に異常な音はなく、虫もおらず、寒くも暑くもなかった。
+それなのになぜ部屋を出たのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男性はベッドの「ある違和感」に気づきました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性が新品のベッドに横になって数分後、マットレスのある一点だけが、自分の体重ではない別の重みでわずかに沈んでいる感覚があった。
+
+横向きになって確認すると、マットレスの片側のスプリングが、誰かが長期間使用していたかのようにヘタっていた。
+
+さらに枕カバーに、洗濯では落ちきらない頭の脂の跡がうっすら残っていた。
+
+新品で購入したはずのベッドが、実は前の住人が使っていた中古品で、業者が「新品」と偽って納品していた。
+気持ち悪さに耐えられず、その夜のうちにホテルへ移動。
+翌日業者に問い合わせて返品・交換となった。</div></div>
+</div>
+
+  </div>
+
+  <div class="footer">
+    本格難問10問おつかれさまでした！<br>
+    <a href="suiheishiko8.html">第8弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko10.html">第10弾へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn){
+  const box=btn.closest('.quiz-card').querySelector('.answer-box');
+  const open=box.classList.contains('show');
+  box.classList.toggle('show',!open);
+  btn.textContent=open?'答えを見る':'答えを隠す';
+  btn.classList.toggle('open',!open);
+}
+</script>
+</body>
+</html>
