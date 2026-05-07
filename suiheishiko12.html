@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第12弾】真相に潜む影…究極難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;min-width:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;white-space:nowrap;margin-top:6px;}
+  .quiz-question{padding:12px 18px 14px 64px;font-size:1em;font-weight:700;color:var(--text);line-height:1.85;white-space:pre-line;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.85;white-space:pre-line;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab">むずかしい</div><div class="level-tab active">究極難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko9.html" class="nav-link">第9弾</a>
+    <a href="suiheishiko10.html" class="nav-link">第10弾</a>
+    <a href="suiheishiko11.html" class="nav-link">第11弾</a>
+    <a href="suiheishiko12.html" class="nav-link current">第12弾</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第12弾】真相に潜む影…究極難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">真相</span><span class="tag">第12弾</span><span class="tag">究極難問</span></div>
+    <div class="article-head-desc">最も巧妙に隠された真相、最も気づきにくい影。本シリーズの最高峰、最も唸る究極の10問。</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある男性が、長年連れ添った妻と離婚を決意した。
+理由を友人に聞かれた彼は「妻が毎朝、私のために淹れてくれるコーヒーが原因だ」と答えた。
+
+妻は親切で、コーヒーには毒も入っておらず、味も良かった。
+それなのになぜ離婚を決意したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>妻が淹れるコーヒーの「ある変化」が手がかりです。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性は3か月前から、毎朝のコーヒーが微妙に「ぬるめ」になっていることに気づいていた。
+
+それまでは熱々のコーヒーを淹れてくれていたのに、最近は明らかに少し冷めた状態で出てくる。
+
+つまり、妻はコーヒーを淹れてから少し時間を置いて出している。
+
+その時間に何をしているか——
+彼は妻のスマホをこっそり確認し、毎朝決まった時間にメッセージのやり取りをしていることを発見した。
+相手は妻の不倫相手だった。
+
+「コーヒーを淹れてから出すまでの数分」を不倫相手とのやり取りに使っていたのだ。
+温度のわずかな変化が、隠された真相を暴いた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある女性が、家族で温泉旅館に泊まった。
+夜、布団に入って数分後、彼女は急に起きて家族を起こし、別の部屋に移動するよう旅館に頼んだ。
+
+部屋には異臭もなく、布団も清潔で、虫もいなかった。
+それなのになぜ部屋を変えてもらったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は「畳の感触」に違和感を持ちました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">布団の上で寝返りを打ったとき、女性は畳のある一カ所だけが「沈み込む感覚」があることに気づいた。
+
+普通の畳は均一に支えられているが、その畳の下には空洞、もしくは床下の腐食が進んでいる可能性があった。
+
+特に古い旅館では、シロアリ被害や床下の老朽化で床が抜ける事故がたまに起きる。
+もし夜中に家族の体重が一カ所に集中すれば、床が抜けて怪我をする恐れがあった。
+
+女性は元・建築検査員で、こうした床の異常をすぐに察知できた。
+旅館に伝えたところ、点検すると本当に床下に大きな腐食が見つかり、危険を回避できた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある男が、新しい職場の初日、出社して数時間で「この会社はすぐに辞めます」と上司に告げた。
+
+会社は給料も労働条件も良く、同僚も親切だった。
+それなのになぜ即決で辞めたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男はオフィスの「ある光景」に気づきました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男はオフィス内を見回したとき、デスクに置かれた社員の写真立てや家族の写真が、誰一人としてないことに気づいた。
+
+普通のオフィスでは、長く勤めている社員のデスクには家族や恋人の写真、趣味の物などが少しは飾られている。
+しかし、ここのオフィスは机が異常なほど無機質で、私物が一切ない。
+
+つまり、社員は誰もこの会社に長く居つけない。
+頻繁に入れ替わっていて、私物を持ち込む暇すらない労働環境。
+
+男は元・労務監査の経験があり、これが「ブラック企業の典型的な兆候」だと知っていた。
+「給料が良い」のは、人を使い潰す代わりの一時的な餌に過ぎないと見抜いた。
+
+調べてみると、その会社は離職率が90%以上の超ブラック企業だった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある女性が、子どもを連れて新しく引っ越した家の前で、玄関に入る前に立ち止まった。
+そして引っ越し業者に「家に入る前に警察を呼んでほしい」と依頼した。
+
+家は新築で、誰も住んでおらず、不審な様子はなかった。
+それなのになぜ警察を呼んだのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は玄関の「鍵穴」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性が引っ越しの鍵を受け取ったとき、鍵穴の周りにわずかな金属粉が落ちていることに気づいた。
+
+これは「鍵をピッキングまたは複製した痕跡」で、新しい鍵を作る際に削られた金属の屑だった。
+
+新築の家で、入居前にこんな痕跡があるはずがない。
+つまり、引っ越し前に誰かが鍵を不正に複製していた可能性が高い。
+
+不動産会社の元従業員、または工事関係者の中に、新築住宅の鍵を複製して空き巣を働く犯罪者がいることが社会問題になっていた。
+
+女性は警察に通報し、鍵の交換を強く要請。
+調査の結果、本当に不正に鍵を複製した犯人グループが発覚し、複数の家から大切な家族を守ることになった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある男が、古い友人の家を久しぶりに訪問した。
+玄関を開けて出迎えてくれた友人を見て、男はその場で踵を返し、警察に通報した。
+
+友人はいつも通りの笑顔で迎え、家の中も普段通りだった。
+それなのになぜ通報したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>友人の「視線の動き」に違和感がありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">友人は普段から訪問者を玄関で出迎えるとき、自然と男の目を見て話す習慣があった。
+
+しかしその日は、友人の視線が何度も男の肩越しに、家の中の方へちらちらと向いていた。
+そして、いつも明るく話す友人が、その日は妙に短く硬い言葉で受け答えしていた。
+
+男はピンときた——
+家の中に「友人を脅している誰かがいる」可能性。
+強盗や人質事件で、被害者が表面上は普通に振る舞いつつ、目線で助けを求めることはよくある。
+
+男は何も気づかないふりをして「すぐ戻る」と言って立ち去り、警察に通報。
+警察が踏み込むと、本当に強盗が友人を人質に取って金品を強奪しようとしていた現場だった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある女性が、長年育ててきた愛犬と散歩中、突然犬を抱き上げて走って家に帰った。
+
+犬は元気で、危険な動物も周りにいなかった。
+それなのになぜ慌てて家に帰ったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は犬の「ある反応」に気づきました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">散歩中、いつもは元気に歩く犬が、ある特定の場所だけを徹底的に避けて、低い唸り声を上げていた。
+
+犬は人間の何倍もの嗅覚を持ち、人間が気づかない異常を察知することがある。
+特に「死臭」「血の匂い」「ガス漏れ」などには敏感に反応する。
+
+女性は犬の異常な反応を信じて、その場所を避けて家に帰り、警察に通報。
+後日、その場所の植え込みの中から行方不明者の遺体が発見された。
+
+犬の本能が、女性に重要な発見をもたらしたのだった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある男性が、出張先のホテルでチェックインした夜、部屋に一人でいるとき、急に部屋の照明を全部消し、真っ暗にした。
+
+部屋は綺麗で、誰も侵入していない。
+それなのになぜ電気を消したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>暗くしないと「見えないもの」がありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性は仕事で防犯機器の専門家であり、ホテルでは「盗撮カメラの確認」を必ず行っていた。
+
+部屋の電気を消し、スマホのカメラを使って部屋中を撮影しながら歩き回ると、肉眼では見えない「赤外線LED」がカメラの画面に光って映る場所があった。
+
+それは時計の文字盤、コンセントの隙間、エアコンの吹き出し口など、肉眼では絶対わからない位置に仕掛けられた盗撮カメラの赤外線。
+
+男性はその場で警察に通報。
+複数のカメラが客室に仕掛けられており、過去に多くの宿泊客が被害を受けていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある女性が、家族で楽しく食事をしている最中、突然箸を置いて家族全員に「食べるのをやめて」と冷静に告げた。
+
+料理は美味しく、特に異常はなかった。
+それなのになぜ食事を止めたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性はテーブルの「ある場所」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性はテーブルの隅に置いてあった調味料のボトルを、家族の一人が使った後、見るとそのボトルの中身がいつもより微妙に少なくなっていた。
+
+しかも色が、普段使っているものとほんのわずかに違う気がした。
+
+食卓に新しく並んだその調味料は、最近知人からもらった「お土産」だった。
+でも調味料の専門店ではなく、知人が個人で詰め替えたもの。
+
+女性は食品の知識があり、その液体に「市販品ではあり得ない混入物」があることに気づいた。
+すぐに食事を止め、調査を依頼。
+
+検査の結果、その「お土産」には不純物や農薬の混入があり、知人が悪意ではなく誤って汚染された容器に詰めていたことが判明。
+家族の健康被害を未然に防げた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある男性が、高齢の母親に毎週電話をかけていた。
+ある日の電話で、彼は「母親の様子がおかしい」と感じ、すぐに実家に駆けつけた。
+
+母親はいつも通りの声で、特に体調が悪い様子もなかった。
+それなのになぜ駆けつけたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>母親の「言葉の選び方」に違和感がありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">電話の途中、母親はいつも使わない言葉遣いを混ぜていた。
+
+「分かりました」「了解しました」など、家族との会話では絶対に使わない、ビジネスライクな言葉。
+さらに、男性が母親の名前を呼びかけても、ほんの一瞬遅れて反応する違和感があった。
+
+これは、特殊詐欺の犯人が高齢者の家に上がり込んで、電話越しに「家族と思わせる演技」を強要している可能性のサイン。
+母親は犯人に脅されて、不自然な敬語で電話に応じていた。
+
+男性はすぐに実家へ向かい、警察にも通報。
+家には実際に詐欺グループの一員が侵入しており、母親に通帳の暗証番号を要求していた。
+息子の機転で母親は無事保護された。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">究極難問</span></div>
+    <div class="quiz-question">ある女性が、出張から帰って自宅のマンションに着いた。
+エレベーターに乗り、自分の階で降りた。
+廊下を数歩歩いたところで、彼女は急に立ち止まった。
+そしてそのまま、自分の部屋には入らず、すぐに1階へ戻って管理人を呼びに行った。
+
+彼女はその時点で、自分の部屋で何か異変が起きているとほぼ確信していた。
+しかし——
+・ドアは閉まっていた
+・鍵穴に傷はなかった
+・物音もしていない
+・廊下にも誰もいない
+それなのに、なぜ彼女にはわかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>「光」の異常を、彼女は無意識に感じ取りました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">彼女の部屋は、エレベーターを降りてすぐ右に曲がったところにあった。
+
+その日、エレベーターを降りて数歩歩いたとき、彼女は気づいた。
+自分の部屋の前の電球が切れていて、廊下が少し暗かった。
+
+実はその電球、数日前から切れていて、彼女は管理人に「近いうちに替えておきます」と言われていた。
+でもその日の朝、出張に出るときもまだ切れたままだった。
+
+つまり——
+彼女が今、少し暗いと感じたということは、その電球の明るさを知っているはずがない。
+
+なぜなら、エレベーターを降りた時点では、まだ角を曲がっておらず、自分の部屋の前の電球は見えていなかったから。
+
+それでも「少し暗い」と感じたのは、角の向こうからいつもより光が届いていないと無意識にわかったからだった。
+
+彼女はそこで、はっとした。
+——誰かが角の向こうに立っていて、光を遮っている。
+
+だから自分の部屋へ向かわず、すぐに1階へ戻って管理人を呼びに行った。</div></div>
+</div>
+
+  </div>
+
+  <div class="footer">
+    究極難問10問おつかれさまでした！<br>
+    第8〜12弾全50問、ぜひ全問チャレンジしてみてください。<br>
+    <a href="suiheishiko11.html">第11弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn){
+  const box=btn.closest('.quiz-card').querySelector('.answer-box');
+  const open=box.classList.contains('show');
+  box.classList.toggle('show',!open);
+  btn.textContent=open?'答えを見る':'答えを隠す';
+  btn.classList.toggle('open',!open);
+}
+</script>
+</body>
+</html>
