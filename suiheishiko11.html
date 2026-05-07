@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第11弾】五感が告げる警告…本格難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;min-width:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;white-space:nowrap;margin-top:6px;}
+  .quiz-question{padding:12px 18px 14px 64px;font-size:1em;font-weight:700;color:var(--text);line-height:1.85;white-space:pre-line;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.85;white-space:pre-line;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab">むずかしい</div><div class="level-tab active">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko8.html" class="nav-link">第8弾</a>
+    <a href="suiheishiko9.html" class="nav-link">第9弾</a>
+    <a href="suiheishiko10.html" class="nav-link">第10弾</a>
+    <a href="suiheishiko11.html" class="nav-link current">第11弾</a>
+    <a href="suiheishiko12.html" class="nav-link">第12弾</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第11弾】五感が告げる警告…本格難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">五感</span><span class="tag">第11弾</span><span class="tag">本格難問</span></div>
+    <div class="article-head-desc">耳・鼻・目・肌・舌——あなたの感覚はどんな小さな異常も逃さない。本能の警告に気づける本格派10問。</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が深夜、電車の終電に乗って一人で帰っていた。
+車両には他に数人乗っていたが、彼女は次の駅で慌てて電車を降りた。
+
+特に騒いでいる人もおらず、絡まれたわけでもなかった。
+それなのになぜ降りたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は「ある匂い」を感じました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は車内に「アルコールではない異質な匂い」を感じた。
+
+それは灯油やライター用の燃料に近い、揮発性の高い匂いだった。
+しかも一人の男性の周りからだけ強くしていた。
+
+近年、電車内での放火事件が報道されており、女性はその匂いから危険を直感した。
+急いで次の駅で降り、駅員と警察に通報。
+
+調査の結果、その男性は実際にライター用燃料を持ち込んで、車内で何かを起こそうとしていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男が、自宅でテレビを見ていた。
+突然彼は立ち上がって台所に走り、ガス栓を確認し、家族を連れて家を飛び出した。
+
+テレビは普通に映り、特別な番組でもなかった。
+それなのになぜ慌てて避難したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男はテレビの「映像」ではなく「音」に違和感を持ちました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">テレビを見ていた男は、画面の音とは別に「シューーー」というかすかな音が聞こえることに気づいた。
+
+その音はテレビからではなく、台所の方向から来ていた。
+ガス漏れの音だった。
+
+ガスは空気より重く、低い場所に溜まるため、台所の床に近い部分に充満していた可能性があった。
+換気扇すら回さずに何かの火種があれば、爆発の危険があった。
+
+家族を連れて避難し、ガス会社に連絡。
+調査の結果、ガス管の継ぎ目から漏れが発生しており、危機一髪で大事故を防げた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、初めて訪れた友人の家で出された紅茶を、一口飲んだ瞬間「すぐ吐き出してください」と他の客に注意を促した。
+
+紅茶は普通に淹れられたもので、毒物ではなかった。
+それなのになぜ吐き出すように言ったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性はある「アレルギー成分」を舌で感じ取りました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は重度のナッツアレルギーを持つ人物が、その場の客に複数いることを知っていた。
+
+紅茶を一口飲んだ瞬間、彼女は「ヘーゼルナッツのフレーバー」を舌で感じ取った。
+紅茶のパッケージには小さく書かれていただけで、見落としやすい。
+
+ナッツアレルギーの人にとっては、ほんの少量でもアナフィラキシーショックを起こす危険がある。
+女性自身もアレルギー体質で、フレーバーに敏感だった。
+
+すぐに警告したことで、深刻なアレルギー反応を未然に防げた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、出張先のホテルで朝食ビュッフェを楽しんでいた。
+食べ物を取り分けようとしたとき、突然手を止めて、他の客に「これは食べないほうがいい」と声をかけた。
+
+料理に虫がいたわけでも、傷んでいたわけでもない。
+それなのになぜ止めたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>料理の「温度」に違和感がありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">温かい料理として提供されているはずのスクランブルエッグが、ぬるかった。
+
+食品衛生では、温かい料理は60℃以上、冷たい料理は10℃以下で保たれる必要があり、
+中途半端な温度（20〜50℃）は食中毒菌が爆発的に繁殖する「危険ゾーン」とされる。
+
+男性は元・調理師で、料理の温度管理には敏感だった。
+保温器が故障していたか、長時間放置されていた可能性があり、食中毒のリスクが高い状態だった。
+
+ホテルに伝えると、保温器が故障していたことが確認され、新しい料理に交換された。
+他の宿泊客も食中毒を免れた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、自宅でシャワーを浴びていた。
+シャワーを途中でやめて、急いでバスタブから出て家族を連れて家を出た。
+
+水は普通に出ていて、温度も適正だった。
+それなのになぜ慌てて出たのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>水の「色」が手がかりでした。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">シャワーの水を見ると、ほんのわずかに茶色く濁っていた。
+
+通常、水道管の不具合や汚れであれば、最初に出る水だけが濁って徐々に透明になる。
+しかし、シャワーの途中で急に濁りが出た場合は別の原因が考えられた。
+
+それは、水道本管のどこかで破損や工事ミスが起きており、土砂や泥水が混ざっている可能性。
+また、上の階で何らかの事故（家事や水漏れ）が起きて、配管に異物が混入したケースも。
+
+女性は念のため家族と外に出て、自治体と水道局に連絡。
+調査の結果、近所で大規模な水道管破損が発生しており、危険を回避できた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、子どもと一緒に公園で遊んでいた。
+急に子どもを抱き上げて公園を出た。
+
+公園には他にも家族連れがいて、危険な人物もいなかった。
+それなのになぜすぐに出たのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男性は「足元の地面」に違和感を持ちました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">子どもと一緒にしゃがんだとき、男性は地面の砂場に「白っぽい粉のような異物」が混ざっていることに気づいた。
+
+それは、最近問題になっている「公園での薬物使用」の痕跡——使用済みの注射針や、こぼれた粉末の薬物の可能性があった。
+
+幼い子どもが砂場で遊ぶと、手や口に触れる危険性が極めて高い。
+さらに針の刺し傷から感染症を発症する可能性も。
+
+男性はすぐに子どもを抱き上げて公園を離れ、自治体と警察に通報。
+調査の結果、本当に違法薬物の痕跡が見つかり、その公園は閉鎖と清掃が行われた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、深夜にコンビニで弁当を買って家に帰った。
+家で弁当を開けた瞬間、彼女はそれを食べずにすぐにコンビニに引き返して交換を依頼した。
+
+弁当は冷たく保たれており、消費期限内だった。
+それなのになぜ交換したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は弁当を「指で触れた」ときに何か感じました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">弁当箱を開けたとき、容器の縁にうっすらと粘り気のような「ぬめり」を感じた。
+
+通常、未開封の弁当は容器が完全に乾いており、粘り気は出ない。
+このぬめりは、何らかの理由で過去に開封されて再封された痕跡か、容器の密閉不良で外気が入った証拠だった。
+
+特に夏場や気温の高い場所では、コンビニ到着前に何度か再パッケージングされた可能性も。
+食品工場での衛生問題か、運送中の問題か、店舗での事故か、いずれにせよ食べるリスクが高い。
+
+女性は元・食品検査員で、こうした「製造ラインの不具合のサイン」を即座に見抜けた。
+コンビニに伝えたところ、その日の入荷分でいくつか不具合があったことが確認され、回収となった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、エレベーターに乗った瞬間、すぐに降りて階段を使った。
+エレベーターは正常に動作しており、特に異常はなかった。
+それなのになぜ降りたのか？</div>
+    <div class="quiz-bottom">
+      <div class="hint-row"><span class="hint-badge">ヒント</span>男性はエレベーターの「振動」に違和感を持ちました。</div>
+      <div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+      <div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">エレベーターに乗った瞬間、男性は床がほんのわずかに「揺れている」感覚を覚えた。
+
+通常、エレベーターは停止中はピタッと固定されており、人が乗っても揺れることはない。
+しかしこのエレベーターは、人が乗ると微妙にバウンドする感じがあった。
+
+これはワイヤーやモーター系統に異常があり、ロープの張力が不均衡になっている可能性のサイン。
+最悪の場合、上昇途中で停止したり、急降下する事故につながる。
+
+男性は建築関係の仕事をしており、こうした「機械の異常な挙動」に敏感だった。
+すぐに管理会社に連絡し、点検したところ、本当にワイヤーの一本が切れかかっていたことが判明し、事故を未然に防げた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、家で家族と団らんしていた。
+突然立ち上がって、子どもの部屋に走り込み、寝ていた子どもを抱き上げて隣の部屋に連れていった。
+
+家族は驚いたが、後で「あなたのおかげで助かった」と言われた。
+なぜ？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は「ある音」が聞こえないことに気づきました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性は子ども部屋から流れている「ホワイトノイズ（赤ちゃんの寝かしつけ用の音）」が、ふっと止まったことに気づいた。
+
+普段は寝ている間ずっとついているはずの機械が動作を止めるのは異常。
+さらに耳をすますと、子どもの呼吸音もいつもより弱くなっていた。
+
+女性は新生児ケアの知識があり、これが乳幼児突然死症候群（SIDS）のサインかもしれないと察知した。
+すぐに駆け寄って子どもを抱き上げ、刺激を与えると、呼吸が安定し始めた。
+
+すぐに救急搬送し、無呼吸発作の対処を受けた。
+ホワイトノイズの機械が壊れたタイミングで、たまたま子どもの異変が重なった。
+女性の素早い判断で命が救われた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、地下鉄に乗って通勤していた。
+車両がトンネルに入った瞬間、彼は次の駅でタッチして外に出るよう、隣の知らない女性に小声で伝えた。
+
+車両は普通に走行しており、誰も騒いでいない。
+それなのになぜ伝えたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男性は車両内の「気圧」と「光」の変化から異変を感じ取りました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">トンネルに入った瞬間、男性は普段と違って耳の圧迫感が強く、車両の照明もわずかにちらついていた。
+
+これは地下鉄のトンネル内で「換気が止まっている」もしくは「電力供給に異常がある」可能性を示すサイン。
+さらに男性は、隣の女性が「呼吸が荒い」「顔色が悪い」ことにも気づいた。
+
+換気不良で酸素濃度が下がり始めている兆候だった。
+特に隣の女性は呼吸器系に持病がありそうな様子。
+
+男性は元・救急救命士で、こうした「複合的な異常」を瞬時に判断できた。
+次の駅で女性を促して下車させ、駅員に通報。
+後の調査でトンネル内の換気装置が故障していたことが確認され、女性も無事に処置を受けた。</div></div>
+</div>
+
+  </div>
+
+  <div class="footer">
+    本格難問10問おつかれさまでした！<br>
+    <a href="suiheishiko10.html">第10弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko12.html">第12弾へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn){
+  const box=btn.closest('.quiz-card').querySelector('.answer-box');
+  const open=box.classList.contains('show');
+  box.classList.toggle('show',!open);
+  btn.textContent=open?'答えを見る':'答えを隠す';
+  btn.classList.toggle('open',!open);
+}
+</script>
+</body>
+</html>
