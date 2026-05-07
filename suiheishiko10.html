@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【水平思考クイズ第10弾】日常に仕掛けられた罠…本格難問10選</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+  :root{--bg:#f8fafe;--surface:#fff;--border:#dde8f8;--accent:#3a78d8;--accent-light:#6098f0;--text:#141828;--text-sub:#607090;--hint-bg:#f0f6ff;--hint-line:#80b0f0;--ans-bg:#edf5ff;--num-bg:#3a78d8;--num-text:#fff;--tag-bg:#e4eefb;--tag-text:#3a78d8;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);line-height:1.85;padding-bottom:80px;}
+  .site-header{background:var(--accent);padding:0 20px;display:flex;align-items:center;height:52px;}
+  .site-logo{font-size:1.1em;font-weight:700;color:#fff;}
+  .site-sub{font-size:.75em;color:rgba(255,255,255,.7);margin-left:10px;}
+  .level-bar{background:#e8f0fb;border-bottom:1px solid var(--border);padding:0 16px;display:flex;overflow-x:auto;}
+  .level-tab{padding:10px 16px;font-size:.78em;font-weight:700;color:var(--text-sub);white-space:nowrap;border-bottom:2px solid transparent;}
+  .level-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+  .container{max-width:720px;margin:0 auto;padding:24px 16px;}
+  .article-head{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px 20px;margin-bottom:24px;}
+  .article-head-title{font-size:1.4em;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4;}
+  .article-head-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+  .tag{background:var(--tag-bg);color:var(--tag-text);font-size:.72em;font-weight:700;padding:3px 10px;border-radius:20px;}
+  .article-head-desc{font-size:.9em;color:var(--text-sub);line-height:1.8;}
+  .nav-links{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+  .nav-link{background:var(--surface);border:1px solid var(--border);color:var(--accent);font-size:.78em;font-weight:700;padding:5px 12px;border-radius:20px;text-decoration:none;}
+  .nav-link.current{background:var(--accent);color:#fff;}
+  .quiz-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:14px;overflow:hidden;}
+  .quiz-top{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 0;}
+  .quiz-num{width:34px;height:34px;min-width:34px;background:var(--num-bg);color:var(--num-text);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88em;font-weight:700;}
+  .quiz-label{font-size:.7em;font-weight:700;padding:2px 10px;border-radius:20px;background:#ffeaea;color:#e53935;white-space:nowrap;margin-top:6px;}
+  .quiz-question{padding:12px 18px 14px 64px;font-size:1em;font-weight:700;color:var(--text);line-height:1.85;white-space:pre-line;}
+  .quiz-bottom{border-top:1px solid var(--border);}
+  .hint-row{padding:10px 18px 10px 64px;background:var(--hint-bg);font-size:.84em;color:#4060a0;display:flex;align-items:flex-start;gap:8px;}
+  .hint-badge{background:var(--hint-line);color:#fff;font-size:.7em;font-weight:700;padding:1px 8px;border-radius:10px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+  .btn-row{padding:12px 18px 12px 64px;}
+  .answer-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:8px 22px;font-size:.85em;font-weight:700;font-family:'Zen Maru Gothic',sans-serif;cursor:pointer;}
+  .answer-btn.open{background:#5cb85c;}
+  .answer-box{display:none;background:var(--ans-bg);border-top:1px solid var(--border);padding:14px 18px 14px 64px;font-size:.92em;color:#2040a0;animation:slideDown .22s ease;}
+  .answer-box.show{display:block;}
+  @keyframes slideDown{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+  .ans-head{font-size:.78em;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .ans-body{line-height:1.85;white-space:pre-line;}
+  .footer{margin-top:40px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;font-size:.85em;color:var(--text-sub);line-height:2;}
+  .footer a{color:var(--accent);text-decoration:none;font-weight:700;}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="site-logo">なぞとき広場</div><div class="site-sub">頭をやわらかく！</div></header>
+<div class="level-bar"><div class="level-tab">かんたん</div><div class="level-tab">ふつう</div><div class="level-tab">むずかしい</div><div class="level-tab active">超難問</div></div>
+<div class="container">
+  <div class="nav-links">
+    <a href="suiheishiko8.html" class="nav-link">第8弾</a>
+    <a href="suiheishiko9.html" class="nav-link">第9弾</a>
+    <a href="suiheishiko10.html" class="nav-link current">第10弾</a>
+    <a href="suiheishiko11.html" class="nav-link">第11弾</a>
+    <a href="suiheishiko12.html" class="nav-link">第12弾</a>
+  </div>
+  <div class="article-head">
+    <div class="article-head-title">【水平思考クイズ第10弾】日常に仕掛けられた罠…本格難問10選</div>
+    <div class="article-head-meta"><span class="tag">水平思考</span><span class="tag">日常の罠</span><span class="tag">第10弾</span><span class="tag">本格難問</span></div>
+    <div class="article-head-desc">普段の生活に紛れた巧妙な罠。その仕掛けに気づけるか？気づいた人だけが助かる本格派10問。</div>
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">1</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、SNSで知り合った男性と初めてのデートで高級レストランに行った。
+食事中、女性は突然「お手洗いに」と言って店を出て、そのまま帰宅した。
+
+男性に失礼な振る舞いはなく、料理にも問題はなかった。
+それでもなぜ彼女は店を出たのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性はトイレに行く前、ある「動作」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性がトイレに立とうと席を離れた瞬間、振り返ると男性が彼女のグラスに何かを入れる仕草が、店の鏡越しにちらっと見えた。
+
+これは「飲み物に薬物を入れる手口」の典型で、女性が席に戻ってその飲み物を口にする前に逃げる必要があった。
+
+女性はトイレに行くふりをしてそのまま店を出て、店員に伝えてから警察に通報した。
+グラスを警察が分析した結果、本当に薬物が入っていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">2</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男が、自宅に届いた荷物を受け取ったあと、すぐに警察に通報した。
+
+差出人は知人の名前で、中身も注文した商品だった。
+箱に異常はなく、爆発物などの危険物でもなかった。
+それなのになぜ通報したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男は箱の「ある部分」に違和感を持ちました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男は普段からネットショッピングをよく利用しており、配達ラベルの形式や貼り方を見慣れていた。
+
+その荷物のラベルは、形式や印字は本物そっくりだったが、ラベルが上から重ねて貼り直された痕跡があった。
+
+しかも差出人欄の知人は、男の住所を最近知ったばかりの人物だった。
+
+これは「不在配達詐欺」や「住所確認のための偽装配送」の手口で、犯罪者が住人の在宅時間や警戒度を調べるために偽の配送を行うことがある。
+
+通報後、近隣で空き巣が頻発していることが判明し、配送業者を装った下調べだったことが分かった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">3</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、深夜にスマホを操作していると、突然部屋の電気を消し、机の下に隠れて警察に通報した。
+
+部屋には誰もおらず、物音もしない。
+それなのになぜ隠れたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>スマホの「ある通知」が手がかりでした。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性のスマホに、自宅のスマートホーム連携アプリから「玄関ドアが開きました」という通知が届いた。
+
+しかし彼女は今、部屋の中にいて玄関は開けていない。
+家族も全員帰宅済みで、誰もドアを開ける必要はなかった。
+
+つまり、誰かが鍵を開けて家の中に侵入しているということ。
+
+電気を消して机の下に隠れたのは、まだ侵入者に気づかれていないうちに身を守り、警察を呼ぶための行動だった。
+警察到着時、実際に空き巣犯が家の中にいたことが確認された。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">4</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性がコンビニで深夜にアルバイトをしていた。
+レジに来た客が支払いをしている最中、店員は「すみません、奥のトイレで一緒に確認したいことがあるので来てください」と客に声をかけた。
+
+客は承諾し、店員と一緒に奥へ移動した。
+これによって客は重大な事件から守られた。
+なぜ？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>店員は防犯カメラのモニターを見ていました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">店員はモニターで店外の様子を見ていて、店の入口に大きな袋を持った不審な男が近づいてくるのを発見した。
+
+その男はマスクとサングラスで顔を隠し、明らかに強盗の雰囲気だった。
+
+レジで会計中の客をそのままにすると、強盗が押し入ってきたときに人質や巻き添えになる危険性があった。
+
+店員は機転を利かせて「トイレで確認したいことがある」と口実をつくり、客を奥のバックヤードへ避難させた。
+その直後、強盗が押し入ったが、客は無事だった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">5</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、海外旅行先のホテルでチェックインした。
+部屋に入ってドアを閉めた瞬間、彼女はすぐにフロントに電話して「別の部屋に変えてほしい」と要請した。
+
+部屋は綺麗で、窓からの景色も良かった。
+それなのになぜすぐに部屋を変えてほしいと頼んだのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性はドアの「内側」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">部屋に入ってドアを閉めたとき、ドアの内側にあるはずの「ドアチェーン」と「U字ロック」がどちらも壊れていることに気づいた。
+
+メインの鍵はかかるが、内側からの追加ロックが使えない状態。
+
+これは犯罪者が以前にこの部屋に侵入した際、内側のロックを壊したまま放置されている可能性がある。
+あるいは、合鍵を持った何者かが内側のロックがない状態を狙って侵入する準備をしている可能性も。
+
+海外では特に、内側のロックが壊れている部屋は危険のサインとされる。
+女性はすぐに部屋変更を要請し、フロントもその対応をすぐに行った。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">6</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男が、深夜の道路で車を運転していた。
+信号待ちで停車した瞬間、彼は急にアクセルを踏んで赤信号を無視して走り去った。
+
+道路に異常はなく、追われている様子もなかった。
+それなのになぜ赤信号を無視して逃げたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>男はバックミラーで「ある光景」を見ました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">バックミラーで後ろの車を見たとき、運転席にも助手席にも誰も座っていないように見える車が、自分の車のすぐ後ろにぴったり止まっていた。
+
+しかしエンジンはかかっており、ヘッドライトも点いていた。
+
+これは「車内に隠れて待ち伏せする」犯罪の手口の可能性があった。
+被害者が車から降りてきた瞬間や、信号待ちで気を抜いた瞬間を狙って襲う準備をしている。
+
+男は危険を察知し、信号無視で走り去って警察に通報した。
+後日、その地域で同様の手口の襲撃事件が起きていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">7</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、深夜に一人でジョギングをしていた。
+彼女は突然走るのをやめて、近くのコンビニに駆け込んで店員に助けを求めた。
+
+道には誰もおらず、襲われたわけでもない。
+それなのになぜ助けを求めたのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>女性は足音を聞いていました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">ジョギング中、彼女は自分の足音以外に、もう一つの足音が聞こえることに気づいた。
+
+最初は気のせいかと思ったが、彼女が走るペースを上げると、その足音もペースを上げた。
+逆にペースを落とすと、相手も同じペースに落とした。
+
+明らかに自分を尾行している人物がいる。
+
+彼女はわざと脇道に入らず、明るくて人がいるコンビニに駆け込み、店員に事情を話して警察を呼んでもらった。
+店外には不審な男が立ち止まっていたが、警察の到着前に逃走。
+後日、同じ地域でストーカー事件として被害届が複数出ていたことが判明した。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">8</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、自宅の鍵を開けようとした瞬間、急に手を止めて、鍵を入れ直さずにそのまま近くの交番に向かった。
+
+ドアにも鍵にも傷はなく、家の中は静かだった。
+それなのになぜ家に入らなかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>鍵穴を見てください。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性はドアの鍵穴の周りに、肉眼ではほぼ見えないほど小さな「マーキング」がついていることに気づいた。
+
+これは空き巣業界で「家の特徴を仲間に伝える印」として使われるサインで、
+「住人の生活パターン」「在宅時間」「侵入の難易度」などが暗号で書かれている。
+
+男性は以前、防犯講座で「玄関にマーキングがあったら侵入されている可能性が高い」と教わっていた。
+
+警察に届け出て調査してもらうと、家の中は侵入された形跡があり、財布と通帳が盗まれていた。
+泥棒は男性の帰宅時間を把握しており、ぎりぎりまで滞在していた可能性が高かった。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">9</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある女性が、銀行のATMでお金を引き出そうとした瞬間、突然取りやめて隣の支店まで移動した。
+
+ATMには故障の表示もなく、誰も並んでいなかった。
+それなのになぜ使わなかったのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>カード挿入口に違和感がありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">女性はATMのカード挿入口の縁が、わずかに膨らんでいることに気づいた。
+
+これは「スキミング装置」が取り付けられているサインで、カードを挿入すると磁気情報が読み取られ、暗証番号も上部の小型カメラで撮影される犯罪手口。
+
+女性は元・銀行員で、こういった犯罪手口を知っていた。
+ATMを使わずに警察と銀行に通報し、調査の結果、本当にスキミング装置が取り付けられていたことが判明した。
+
+その日のうちにいくつもの被害が未然に防がれた。</div></div>
+</div>
+
+  </div>
+
+  <div class="quiz-card"><div class="quiz-top"><div class="quiz-num">10</div><span class="quiz-label">本格難問</span></div>
+    <div class="quiz-question">ある男性が、公園のベンチで休憩していた。
+ふと立ち上がって、少し離れた場所のベンチに座り直した。
+
+最初のベンチには傷も汚れもなく、誰もいなかった。
+それなのになぜ移動したのか？</div>
+<div class="quiz-bottom">
+<div class="hint-row"><span class="hint-badge">ヒント</span>ベンチの「下」に何かありました。</div>
+<div class="btn-row"><button class="answer-btn" onclick="toggleAnswer(this)">答えを見る</button></div>
+<div class="answer-box"><div class="ans-head">答え</div><div class="ans-body">男性は座って数分後、ベンチの下に小さな黒い箱がガムテープで固定されていることに気づいた。
+
+それは盗聴器または小型カメラの可能性があり、何者かがそのベンチに座る人物を狙って情報を集めていることを示していた。
+
+男性は元・公安関係者で、すぐに移動して警察に通報。
+調べてみると、近隣の重要施設の関係者を狙った産業スパイ活動の一環だったことが判明した。
+
+ベンチの利用者から会話や行動を盗み出そうとしていた組織が摘発された。</div></div>
+</div>
+
+  </div>
+
+  <div class="footer">
+    本格難問10問おつかれさまでした！<br>
+    <a href="suiheishiko9.html">第9弾へ</a> &nbsp;|&nbsp; <a href="index.html">トップへ</a> &nbsp;|&nbsp; <a href="suiheishiko11.html">第11弾へ</a>
+  </div>
+</div>
+<script>
+function toggleAnswer(btn){
+  const box=btn.closest('.quiz-card').querySelector('.answer-box');
+  const open=box.classList.contains('show');
+  box.classList.toggle('show',!open);
+  btn.textContent=open?'答えを見る':'答えを隠す';
+  btn.classList.toggle('open',!open);
+}
+</script>
+</body>
+</html>
